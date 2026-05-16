@@ -84,7 +84,7 @@ Deployment happens automatically via GitHub Actions:
 - **Trigger:** Every push to `main` branch
 - **Build:** Node 22, `npm run build`
 - **Deploy:** Artifact uploaded to GitHub Pages
-- **Site URL:** https://ddelnailo.github.io/PKZCorp/
+- **Site URL:** https://pkzcorp.github.io/
 
 To enable GitHub Pages:
 1. Go to repo Settings → Pages
