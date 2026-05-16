@@ -565,15 +565,15 @@ jobs:
 
 ### 5.4 Decisões de Design
 
-| Decisão            | Escolha                                       | Razão                                         |
+| Decisão            | Escolha atual no repositório                  | Observações / próximos passos                 |
 | ------------------ | --------------------------------------------- | --------------------------------------------- |
-| CSS Framework      | **SCSS/Sass** com CSS Modules ou partials     | Simples, organizado, sem dependências pesadas |
-| Fontes             | Google Fonts                                  | Fonte visual definida mais tarde              |
-| Ícones             | A definir                                     | Escolha adiada para a etapa visual            |
-| Animações          | CSS transitions + Intersection Observer       | Basta para revelações suaves e filtros        |
-| Tema               | Dark mode por padrão + toggle para light mode | Controle simples para o usuário               |
-| Imagens            | WebP com fallback JPEG                        | Performance                                   |
-| Filtro de projetos | JavaScript vanilla no cliente                 | Simples, sem biblioteca                       |
+| CSS Framework      | **SCSS/Sass** (parciais em `src/styles/`)     | Estrutura já implementada com tokens e mixins |
+| Fontes             | `Inter`, `IBM Plex Sans`, `JetBrains Mono` via Google Fonts | Importadas em `src/layouts/Base.astro`        |
+| Ícones             | Lucide (via `@lucide/astro`)                  | Component `src/components/Icon.astro` usa Lucide
+| Animações          | CSS transitions; respects `prefers-reduced-motion` | Intersection Observer patterns prepared in styles; reduce-motion handled
+| Tema               | Dark-first color tokens (`$color-bg: #0a0a0a`) | Dark mode is default in styles; no theme toggle implemented yet
+| Imagens            | Logos present as PNG/SVG in `public/images/`  | Thumbnails in content currently use external placeholder images; recommend exporting WebP versions
+| Filtro de projetos | Planned: client-side JS                       | Pages currently placeholders — implement vanilla JS filters when building `/projetos`
 
 ### 5.5 Acessibilidade
 
