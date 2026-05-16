@@ -1,0 +1,30 @@
+slug: gab
+name: Gab
+avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=gab
+tagline: "designer, illustrator, creative director"
+bio: >
+  Visual storyteller with roots in animation and concept art.
+  Obsessed with color theory, character design, and interactive experiences.
+  Currently exploring the intersection of code and visual design.
+
+skills:
+  - Digital Illustration
+  - UI/UX Design
+  - Animation
+  - Art Direction
+  - Figma
+
+links:
+  github: https://github.com/gab
+  instagram: https://instagram.com/gab
+  behance: https://behance.net/gab
+
+productions:
+  - title: "Visual Identity for PKZCorp"
+    url: https://example.com
+    type: design
+    year: 2024
+  - title: "Animated Shorts Series"
+    url: https://example.com
+    type: animation
+    year: 2023

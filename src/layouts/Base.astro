@@ -1,0 +1,71 @@
+---
+// src/layouts/Base.astro
+// Main layout for all pages - imports global and layout styles
+
+import { useBaseUrl } from '../lib/useBaseUrl';
+import '../styles/global.scss';
+import '../styles/layout.scss';
+import SiteLogo from '../components/SiteLogo.astro';
+import Icon from '../components/Icon.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = "PKZCorp", description = "Creative tech collective" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    
+    <!-- Import Google Fonts (defined in brand workbook) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script src={useBaseUrl('/js/nav.js')} defer></script>
+  </head>
+
+  <body>
+    <!-- Header / Navigation -->
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo-area">
+          <h1 class="logo"><SiteLogo /></h1>
+        </div>
+        <button class="menu-button" aria-expanded="false" aria-controls="main-nav" id="menu-button">☰</button>
+        <nav class="nav" id="main-nav" aria-hidden="true">
+          <a href={useBaseUrl('/')}><Icon name="home" size={18} class="nav-icon" aria-hidden="true"/>Home</a>
+          <a href={useBaseUrl('/sobre')}><Icon name="info" size={18} class="nav-icon" aria-hidden="true"/>Sobre</a>
+          <a href={useBaseUrl('/membros')}><Icon name="users" size={18} class="nav-icon" aria-hidden="true"/>Membros</a>
+          <a href={useBaseUrl('/projetos')}><Icon name="project" size={18} class="nav-icon" aria-hidden="true"/>Projetos</a>
+          <a href={useBaseUrl('/jams')}><Icon name="spark" size={18} class="nav-icon" aria-hidden="true"/>Jams</a>
+          <a href={useBaseUrl('/contato')}><Icon name="mail" size={18} class="nav-icon" aria-hidden="true"/>Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+          <p>&copy; 2026 PKZCorp. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Repository" class="social-link"><Icon name="repo" size={20} /></a>
+            <a href="#" aria-label="Email" class="social-link"><Icon name="mail" size={20} /></a>
+          </div>
+      </div>
+    </footer>
+  </body>
+</html>

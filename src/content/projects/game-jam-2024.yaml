@@ -1,0 +1,22 @@
+slug: game-jam-2024
+title: "Game Jam 2024 Showcase"
+category: game
+description: >-
+  A collection of experimental games created during PKZCorp's first community game jam.
+  Themes ranged from "memory" to "emergence" to "systems."
+  Five games completed in 72 hours by teams of 2-3 members.
+
+year: 2024
+members:
+  - del
+  - gab
+thumbnail: https://api.dicebear.com/9.x/shapes/svg?seed=gamejam
+
+tags:
+  - game
+  - jam
+  - experimental
+
+links:
+  itch: https://pkzcorp.itch.io/game-jam-2024
+  github: https://github.com/pkzcorp/game-jam-2024

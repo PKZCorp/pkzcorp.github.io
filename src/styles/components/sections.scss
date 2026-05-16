@@ -1,0 +1,67 @@
+/* src/styles/components/sections.scss */
+/* General section component styles */
+
+@use '../_mixins' as *;
+@use '../_variables' as *;
+
+.section {
+  padding: $space-2xl $space-lg;
+  margin: $space-2xl 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  h2 {
+    margin-bottom: $space-lg;
+    color: $color-text-primary;
+  }
+
+  p {
+    color: $color-text-secondary;
+    margin-bottom: $space-md;
+    line-height: 1.8;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: $space-xl $space-md;
+    margin: $space-xl 0;
+  }
+}
+
+/* Section with background */
+.section-highlight {
+  @extend .section;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  margin: $space-2xl auto;
+  max-width: $hero-max-width;
+}
+
+/* Grid section for cards/items */
+.section-grid {
+  @extend .section;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $space-xl;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+  }
+}
+
+/* Centered section */
+.section-center {
+  @extend .section;
+  text-align: center;
+  max-width: $hero-content-max-width;
+  margin-left: auto;
+  margin-right: auto;
+}

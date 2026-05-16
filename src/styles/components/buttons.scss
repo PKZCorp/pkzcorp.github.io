@@ -1,0 +1,99 @@
+/* src/styles/components/buttons.scss */
+/* Button component styles - reusable across pages */
+
+@use '../_mixins' as *;
+@use '../_variables' as *;
+
+/* ===== Button Styles ===== */
+.btn {
+  display: inline-block;
+  padding: $space-md $space-lg;
+  font-size: $text-body-small;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  cursor: pointer;
+  @include transition(all);
+  text-decoration: none;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus {
+    @include focus-ring;
+  }
+
+  /* Disabled state */
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: $color-accent;
+  color: $color-bg;
+  border-color: $color-accent;
+
+  &:hover:not(:disabled) {
+    background-color: $color-accent-hover;
+    border-color: $color-accent-hover;
+  }
+}
+
+/* Secondary button */
+.btn-secondary {
+  background-color: transparent;
+  color: $color-text-primary;
+  border-color: $color-border;
+
+  &:hover:not(:disabled) {
+    background-color: $color-surface;
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+}
+
+/* Tertiary button (outline only) */
+.btn-tertiary {
+  background-color: transparent;
+  color: $color-text-secondary;
+  border-color: $color-border;
+
+  &:hover:not(:disabled) {
+    color: $color-text-primary;
+    border-color: $color-text-primary;
+  }
+}
+
+/* Small variant */
+.btn-sm {
+  padding: $space-sm $space-md;
+  font-size: $text-caption;
+}
+
+/* Large variant */
+.btn-lg {
+  padding: $space-lg $space-xl;
+  font-size: $text-body;
+}
+
+/* Group buttons horizontally */
+.btn-group {
+  display: flex;
+  gap: $space-md;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

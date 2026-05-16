@@ -1,0 +1,22 @@
+slug: sound-installation
+title: "Responsive Sound Installation"
+category: art
+description: >-
+  An immersive audio/visual installation that responds to visitor movement.
+  Combines real-time audio synthesis with generative visuals.
+  Exhibited at the São Paulo Digital Arts Festival 2024.
+
+year: 2024
+members:
+  - markin
+  - gab
+thumbnail: https://api.dicebear.com/9.x/shapes/svg?seed=sound
+
+tags:
+  - installation
+  - sound
+  - generative
+  - interactive
+
+links:
+  documentation: https://example.com/installation-doc

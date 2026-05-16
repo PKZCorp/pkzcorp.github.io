@@ -1,0 +1,28 @@
+---
+import { CodeXml, ExternalLink, House, Info, Mail, Sparkles, SquareKanban, Users } from '@lucide/astro';
+
+const ICONS = {
+	home: House,
+	info: Info,
+	users: Users,
+	project: SquareKanban,
+	spark: Sparkles,
+	mail: Mail,
+	repo: CodeXml,
+	external: ExternalLink,
+};
+
+type IconName = keyof typeof ICONS;
+
+interface Props {
+	name?: IconName;
+	size?: number | string;
+	class?: string;
+}
+
+const { name = 'home', size = 16, class: cls = '' } = Astro.props as Props;
+const IconComponent = ICONS[name];
+---
+
+<IconComponent size={size} class={cls} aria-hidden="true" />
+

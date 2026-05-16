@@ -1,0 +1,24 @@
+slug: interactive-poetry
+title: "Interactive Poetry Platform"
+category: web
+description: >-
+  A web platform combining generative poetry with interactive visuals.
+  Visitors can remix poems, generate new verses, and create visual interpretations.
+  Built as an experiment in merging language, code, and visual design.
+
+year: 2024
+members:
+  - del
+  - gab
+  - markin
+thumbnail: https://api.dicebear.com/9.x/shapes/svg?seed=poetry
+
+tags:
+  - web
+  - poetry
+  - generative
+  - interactive
+
+links:
+  site: https://pkzcorp-poetry.example.com
+  github: https://github.com/pkzcorp/interactive-poetry

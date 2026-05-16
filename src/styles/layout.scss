@@ -1,0 +1,214 @@
+/* src/styles/layout.scss */
+/* Shared layout components: header, nav, footer, container */
+
+@use '_mixins' as *;
+@use '_variables' as *;
+
+/* ===== Container ===== */
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 0 $container-padding-mobile;
+  }
+}
+
+/* ===== Header ===== */
+.header {
+  position: sticky;
+  top: 0;
+  height: $header-height;
+  background-color: $color-bg;
+  border-bottom: 1px solid $color-border;
+  z-index: $z-sticky;
+  @include transition(background-color, border-color);
+
+  &:hover {
+    background-color: $color-surface;
+  }
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 $container-padding-mobile;
+  
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $container-padding;
+  }
+}
+
+.logo {
+  font-size: $text-h2;
+  font-weight: 700;
+  margin: 0;
+  @include transition(color);
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+/* ===== Navigation ===== */
+.nav {
+  display: flex;
+  gap: $space-lg;
+
+  a {
+    font-size: $text-body-small;
+    font-weight: 500;
+    padding: $space-sm $space-md;
+    @include transition(color, background-color);
+    border-radius: $radius-sm;
+
+    &:hover {
+      background-color: $color-surface;
+      color: $color-accent;
+    }
+
+    &:focus {
+      @include focus-ring;
+    }
+  }
+}
+
+/* Icon alignment in nav links */
+.nav {
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+
+    .nav-icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      color: $color-text-secondary;
+      flex: 0 0 18px;
+    }
+  }
+}
+
+/* Mobile navigation: hide links and show menu button */
+.menu-button {
+  display: none;
+  background: transparent;
+  border: none;
+  color: $color-text-primary;
+  font-size: 1.25rem;
+  padding: $space-sm;
+  cursor: pointer;
+}
+
+@include respond(mobile) {
+  .nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Mobile: show single nav when header has .nav-open */
+  .header.nav-open {
+    .nav {
+      display: block;
+      position: absolute;
+      top: $header-height;
+      left: 0;
+      right: 0;
+      background: $color-surface;
+      border-bottom: 1px solid $color-border;
+      z-index: $z-overlay;
+      padding: $space-md $container-padding-mobile;
+      display: block;
+
+      a {
+        display: block;
+        padding: $space-sm 0;
+      }
+    }
+  }
+}
+
+/* ===== Main Content Area ===== */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - #{$header-height});
+  flex: 1;
+  padding: $space-2xl 0;
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: auto;
+  background-color: $color-surface;
+  border-top: 1px solid $color-border;
+  padding: $space-2xl $container-padding;
+
+  p {
+    color: $color-text-secondary;
+    font-size: $text-body-small;
+
+    &:last-child {
+      margin-top: $space-md;
+      color: $color-text-muted;
+      font-size: $text-caption;
+    }
+  }
+}
+
+.footer {
+  border-top: 1px solid $color-border;
+  background-color: $color-surface;
+  padding: $space-lg 0;
+  margin-top: $space-2xl;
+
+  p {
+    color: $color-text-secondary;
+    font-size: $text-body-small;
+  }
+}
+
+/* Site logo and footer social */
+.site-logo img {
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: $radius-sm;
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+
+  .site-title {
+    font-family: $font-display;
+    font-size: $text-h3;
+    font-weight: 700;
+    color: $color-text-primary;
+    margin-left: $space-sm;
+  }
+
+  @include respond(mobile) {
+    .site-title { display: none; }
+  }
+}
+
+.footer-social {
+  margin-top: $space-md;
+  display: flex;
+  gap: $space-md;
+
+  .social-link {
+    color: $color-text-secondary;
+    display: inline-flex;
+    align-items: center;
+  }
+}

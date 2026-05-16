@@ -1,0 +1,49 @@
+/* src/styles/_mixins.scss */
+/* SCSS Mixins for reuse across components */
+
+@use '_variables' as *;
+
+/* Transition mixin - supports multiple properties */
+@mixin transition($properties: all, $duration: $motion-normal, $easing: $easing-in-out) {
+  transition: $properties $duration $easing;
+}
+
+/* Focus ring for accessibility */
+@mixin focus-ring($color: $color-accent, $width: 2px, $offset: 2px) {
+  outline: $width solid $color;
+  outline-offset: $offset;
+}
+
+/* Heading font styles */
+@mixin heading-font {
+  font-family: $font-display;
+  font-weight: 700;
+}
+
+/* Text truncation */
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Flexbox centering */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive helper mixin - use keywords: mobile, tablet, desktop */
+@mixin respond($point) {
+  @if $point == mobile {
+    @media (max-width: $breakpoint-mobile) { @content; }
+  } @else if $point == tablet {
+    @media (max-width: $breakpoint-tablet) { @content; }
+  } @else if $point == desktop {
+    @media (min-width: $breakpoint-desktop) { @content; }
+  } @else {
+    // assume direct media query if given
+    @media #{$point} { @content; }
+  }
+}

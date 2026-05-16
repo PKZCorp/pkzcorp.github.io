@@ -1,0 +1,21 @@
+{
+  "name": "pkzcorp",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@lucide/astro": "^1.16.0",
+    "astro": "^6.3.3"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.99.0"
+  }
+}

@@ -1,0 +1,49 @@
+/* src/styles/components/hero.scss */
+/* Hero section component styles */
+
+@use '../_mixins' as *;
+@use '../_variables' as *;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: $hero-height;
+  text-align: center;
+  padding: $space-2xl $space-lg;
+  background: linear-gradient(135deg, $color-surface 0%, $color-bg 100%);
+  
+  /* Break out of container to full width */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: calc(-1 * #{$space-2xl}); /* Pull up to touch header */
+
+  h1 {
+    font-size: $text-display;
+    margin-bottom: $space-lg;
+    max-width: $hero-max-width;
+    @include transition(color);
+  }
+
+  p {
+    font-size: $text-body;
+    color: $color-text-secondary;
+    max-width: $hero-content-max-width;
+    margin-bottom: $space-2xl;
+    line-height: 1.8;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    min-height: $hero-height-mobile;
+    padding: $space-xl $space-md;
+
+    h1 {
+      font-size: $text-h1;
+    }
+
+    p {
+      font-size: $text-body-small;
+    }
+  }
+}

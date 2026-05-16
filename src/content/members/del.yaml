@@ -1,0 +1,29 @@
+slug: del
+name: Del Nailo
+avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=danilo
+tagline: "dev, poet, world-builder"
+bio: >
+  Full-stack developer with a passion for generative art and narrative design.
+  Writes code and poetry. Makes games, music, and interactive stories.
+  Believes software can be beautiful.
+
+skills:
+  - Python
+  - JavaScript / TypeScript
+  - p5.js
+  - Game Design
+  - Poesia
+
+links:
+  github: https://github.com/dddelnailo
+  itch: https://del.itch.io
+
+productions:
+  - title: "The Garden Protocol"
+    url: https://example.com
+    type: game
+    year: 2024
+  - title: "Echo Chambers"
+    url: https://example.com
+    type: music
+    year: 2023

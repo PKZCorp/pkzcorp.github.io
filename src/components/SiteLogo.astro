@@ -1,0 +1,10 @@
+---
+import { useBaseUrl } from '../lib/useBaseUrl';
+
+const size = Astro.props.size || 40;
+---
+
+<a class="site-logo" href={useBaseUrl('/')} aria-label="PKZCorp homepage">
+  <img src={useBaseUrl('/images/logo-transp.png')} alt="PKZCorp logo" width={size} height={size} />
+  <span class="site-title">PKZCorp</span>
+</a>

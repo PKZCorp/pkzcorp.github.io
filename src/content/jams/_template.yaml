@@ -1,0 +1,47 @@
+# Template for a creative jam event
+# Copy this file and rename to [slug].yaml (e.g., game-jam-may-2026.yaml)
+
+slug: jam-slug              # REQUIRED: unique identifier. Example: game-jam-may, music-jam-2026
+
+title: "Jam Title"          # REQUIRED: display name. Example: "May Game Jam 2026"
+type: game                  # REQUIRED: one of: game, music, poem, art, mixed
+
+status: upcoming            # REQUIRED: one of: upcoming, active, voting, closed
+brief: >
+  REQUIRED: Full briefing for participants.
+  Explain the theme (if revealed), rules, inspiration, and spirit of the jam.
+  This is what people read when deciding to participate.
+
+theme: "[THEME HIDDEN]"     # Set to "[THEME HIDDEN]" before reveal.
+                            # Update to actual theme on theme_reveal date.
+
+rules:                      # REQUIRED: list of jam rules
+  - Rule 1. Example: "You have 48 hours to complete your entry"
+  - Rule 2. Example: "You must use only free tools"
+  - Rule 3
+
+dates:                      # REQUIRED: jam timeline
+  announced: 2026-05-01     # Date jam is announced to the team
+  theme_reveal: 2026-05-03  # Date theme is revealed
+  start: 2026-05-03         # Jam starts (same as theme_reveal typically)
+  end: 2026-05-10           # Submission deadline
+  results: 2026-05-12       # When results are published
+
+cover: /assets/jams/jam-slug/cover.png  # OPTIONAL: hero image for jam page
+
+submissions:                # OPTIONAL: list of submitted work
+  - member: member-slug
+    title: "Submission Title"
+    description: "What this entry is / short blurb"
+    url: https://link-to-work.com
+    highlight: false        # Set to true for featured submission (picks of the jam)
+    media:
+      - /assets/jams/jam-slug/member-slug-screenshot.png
+
+result_note: >
+  OPTIONAL: Text published after jam closes.
+  Can include reflections, standout entries, links for replay, etc.
+
+# Before the jam starts, members send their work.
+# Maintainer adds submissions to this file and marks some as highlight: true.
+# After the jam closes, add result_note with final thoughts.

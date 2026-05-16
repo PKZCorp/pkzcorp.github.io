@@ -1,0 +1,37 @@
+# Template for a member profile
+# Copy this file and rename to [slug].yaml (e.g., del.yaml)
+# Fill in all fields marked as required
+
+slug: member-slug           # REQUIRED: unique identifier used in URLs. Must be lowercase, no spaces. Example: del, gabriel
+name: Member Name           # REQUIRED: display name. Example: Del, Gabriel Oliveira
+avatar: /assets/avatars/    # REQUIRED: path to avatar image (400×400px min). Keep in public/assets/avatars/
+
+tagline: "Short tagline here"  # REQUIRED: one-line bio. Max 60 characters. Example: "dev, poet, creator"
+
+bio: >
+  REQUIRED: 2-4 paragraphs of free-form introduction.
+  You can write in first person, be informal.
+  Talk about your interests, background, and what drives your work.
+  Use > for multi-line text (YAML feature).
+
+skills:          # REQUIRED: list of skills/areas of expertise
+  - Skill 1      # Examples: Python, JavaScript, Game Design, Music Production, Illustration
+  - Skill 2
+  - Skill 3
+
+links:           # OPTIONAL: external links to your work/profiles
+  github: https://github.com/yourusername
+  # Remove lines you don't need
+  # itch: https://yourname.itch.io
+  # soundcloud: https://soundcloud.com/yourname
+  # instagram: https://instagram.com/yourname
+  # website: https://yourwebsite.com
+
+productions:     # OPTIONAL: your previous work/portfolio items
+  - title: "Project or Work Title"
+    type: game   # one of: game, music, poem, art, software, other
+    url: https://link-to-your-work.com
+    year: 2025
+    description: "Optional: brief description"
+
+  # Add more items as needed, separated by dashes
