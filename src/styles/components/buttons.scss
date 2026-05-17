@@ -41,6 +41,7 @@
 
   &:hover:not(:disabled) {
     background-color: $color-accent-hover;
+    color: $color-text-dark;
     border-color: $color-accent-hover;
   }
 }
@@ -53,8 +54,8 @@
 
   &:hover:not(:disabled) {
     background-color: $color-surface;
-    border-color: $color-accent;
     color: $color-accent;
+    border-color: $color-accent;
   }
 }
 

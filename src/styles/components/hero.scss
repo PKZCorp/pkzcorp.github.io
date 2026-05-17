@@ -15,7 +15,7 @@
   background: linear-gradient(135deg, $color-surface 0%, $color-bg 100%);
   
   /* Break out of container to full width */
-  width: 100vw;
+  width: 100%;
   margin-left: calc(50% - 50vw);
   margin-top: calc(-1 * #{$space-2xl}); /* Pull up to touch header */
 
