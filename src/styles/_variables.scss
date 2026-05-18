@@ -1,5 +1,6 @@
 /* src/styles/_variables.scss */
 /* SCSS variables - compile-time values for consistency */
+@use 'sass:math';
 
 /* ===== Color System ===== */
 /* Brand colors */
@@ -102,8 +103,8 @@ $letter-spacing-normal: 0;
 $letter-spacing-wide: 0.5px;
 
 /* ===== Aspect Ratios ===== */
-$aspect-ratio-square: 1 / 1;
-$aspect-ratio-video: 16 / 9;
+$aspect-ratio-square: math.div(1, 1);
+$aspect-ratio-video: math.div(16, 9);
 
 /* ===== Opacity Scale ===== */
 $opacity-subtle: 0.1;
