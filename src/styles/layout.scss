@@ -59,7 +59,7 @@
 .nav {
   display: flex;
 
-  a {
+  a:not(.language-picker-menu a) {
     font-size: $text-body-small;
     font-weight: 500;
     padding: $space-sm $space-sm;
