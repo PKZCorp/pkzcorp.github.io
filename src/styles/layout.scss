@@ -6,7 +6,29 @@
 
 /* ===== Container ===== */
 .container {
+  width: 100%;
   max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 0 $container-padding-mobile;
+  }
+}
+
+.container-wide {
+  width: 100%;
+  max-width: $container-wide-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 0 $container-padding-mobile;
+  }
+}
+
+.container-full {
+  width: 100%;
   margin: 0 auto;
   padding: 0 $container-padding;
 
