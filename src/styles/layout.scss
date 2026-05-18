@@ -59,11 +59,10 @@
 .nav {
   display: flex;
 
-  a:not(.language-picker-menu a) {
+  a {
     font-size: $text-body-small;
     font-weight: 500;
     padding: $space-sm $space-sm;
-    // padding: $space-sm $space-md;
     @include transition(color, background-color);
     border-radius: $radius-sm;
 
@@ -133,7 +132,6 @@
         display: flex;
         align-items: center;
         gap: $space-sm;
-        padding: $space-sm 0;
       }
     }
   }

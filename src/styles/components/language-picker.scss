@@ -107,7 +107,7 @@
 
 .language-picker-menu a {
   display: block;
-  padding: $space-md $space-lg;
+  padding: $space-sm $space-md;
   text-decoration: none;
   font-size: $text-body-small;
   font-weight: 500;
@@ -116,7 +116,6 @@
   @include transition(all);
 
   @media (max-width: $breakpoint-tablet) {
-    padding: $space-md $space-lg;
     border: 1px solid $color-border;
     border-radius: $radius-sm;
     margin-top: $space-xs;
