@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import '../styles/pages/projects.scss';
+import { initProjectSearch } from '../scripts/projectSearch';
+import { initFilterDropdowns } from '../scripts/filterDropdowns';
 
 const projects = await getCollection('projects');
 
@@ -21,20 +23,20 @@ const categories = Array.from(new Set(projects.map(p => p.data.category))).sort(
 const statuses = Array.from(new Set(projects.map(p => p.data.status))).sort();
 
 const categoryLabels: Record<string, string> = {
-  game: 'Games',
-  music: 'Music',
+  game: 'Jogos',
+  music: 'Música',
   software: 'Software',
-  poem: 'Poems',
-  art: 'Art',
-  collab: 'Collaboration',
-  other: 'Other',
+  poem: 'Poesias',
+  art: 'Arte',
+  collab: 'Colaboração',
+  other: 'Outros',
 };
 
 const statusLabels: Record<string, string> = {
-  released: 'Released',
-  wip: 'WIP',
-  jam: 'Jam',
-  archived: 'Archived',
+  released: 'Lançado',
+  wip: 'Em Desenvolvimento',
+  jam: 'Game Jam',
+  archived: 'Arquivado',
 };
 ---
 
@@ -43,46 +45,33 @@ const statusLabels: Record<string, string> = {
     <h1>Projetos</h1>
     <p class="intro-text">Uma coleção de trabalhos criativos e técnicos</p>
 
-    <div class="filters">
-      <div class="filter-group">
-        <label>Categoria</label>
-        <div class="filter-buttons">
-          <a
-            href="/projetos"
-            class={`filter-btn ${!categoryFilter ? 'active' : ''}`}
-          >
-            Todas
-          </a>
-          {categories.map(cat => (
-            <a
-              href={`/projetos?category=${cat}${statusFilter ? `&status=${statusFilter}` : ''}`}
-              class={`filter-btn ${categoryFilter === cat ? 'active' : ''}`}
-            >
-              {categoryLabels[cat]}
-            </a>
-          ))}
-        </div>
-      </div>
+    <div class="search-bar">
+      <input
+        type="text"
+        id="project-search"
+        placeholder="Buscar projetos por título ou descrição..."
+        class="search-input"
+      />
+    </div>
 
-      <div class="filter-group">
-        <label>Status</label>
-        <div class="filter-buttons">
-          <a
-            href="/projetos"
-            class={`filter-btn ${!statusFilter ? 'active' : ''}`}
-          >
-            Todos
-          </a>
-          {statuses.map(status => (
-            <a
-              href={`/projetos?status=${status}${categoryFilter ? `&category=${categoryFilter}` : ''}`}
-              class={`filter-btn ${statusFilter === status ? 'active' : ''}`}
-            >
-              {statusLabels[status]}
-            </a>
-          ))}
-        </div>
-      </div>
+    <div class="filters">
+      <select id="category-filter" class="filter-select">
+        <option value="">Todas as Categorias</option>
+        {categories.map(cat => (
+          <option value={cat} selected={categoryFilter === cat}>
+            {categoryLabels[cat]}
+          </option>
+        ))}
+      </select>
+
+      <select id="status-filter" class="filter-select">
+        <option value="">Todos os Status</option>
+        {statuses.map(status => (
+          <option value={status} selected={statusFilter === status}>
+            {statusLabels[status]}
+          </option>
+        ))}
+      </select>
     </div>
 
     {sortedProjects.length > 0 ? (
@@ -104,5 +93,19 @@ const statusLabels: Record<string, string> = {
         <p>Nenhum projeto encontrado com esses filtros.</p>
       </div>
     )}
+    <div id="search-no-results" class="no-results" style="display: none;">
+      <p>Nenhum projeto corresponde à sua busca.</p>
+    </div>
+    <div id="filter-no-results" class="no-results" style="display: none;">
+      <p>Nenhum projeto encontrado com esses filtros.</p>
+    </div>
   </div>
 </Base>
+
+<script>
+  import { initProjectSearch } from '../scripts/projectSearch';
+  import { initFilterDropdowns } from '../scripts/filterDropdowns';
+
+  initProjectSearch();
+  initFilterDropdowns();
+</script>

@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import '../../styles/pages/projects.scss';
+import { initProjectSearch } from '../../scripts/projectSearch';
+import { initFilterDropdowns } from '../../scripts/filterDropdowns';
 
 const projects = await getCollection('projects');
 
@@ -43,46 +45,33 @@ const statusLabels: Record<string, string> = {
     <h1>Projects</h1>
     <p class="intro-text">A collection of creative and technical works</p>
 
-    <div class="filters">
-      <div class="filter-group">
-        <label>Category</label>
-        <div class="filter-buttons">
-          <a
-            href="/en/projects"
-            class={`filter-btn ${!categoryFilter ? 'active' : ''}`}
-          >
-            All
-          </a>
-          {categories.map(cat => (
-            <a
-              href={`/en/projects?category=${cat}${statusFilter ? `&status=${statusFilter}` : ''}`}
-              class={`filter-btn ${categoryFilter === cat ? 'active' : ''}`}
-            >
-              {categoryLabels[cat]}
-            </a>
-          ))}
-        </div>
-      </div>
+    <div class="search-bar">
+      <input
+        type="text"
+        id="project-search"
+        placeholder="Search projects by title or description..."
+        class="search-input"
+      />
+    </div>
 
-      <div class="filter-group">
-        <label>Status</label>
-        <div class="filter-buttons">
-          <a
-            href="/en/projects"
-            class={`filter-btn ${!statusFilter ? 'active' : ''}`}
-          >
-            All
-          </a>
-          {statuses.map(status => (
-            <a
-              href={`/en/projects?status=${status}${categoryFilter ? `&category=${categoryFilter}` : ''}`}
-              class={`filter-btn ${statusFilter === status ? 'active' : ''}`}
-            >
-              {statusLabels[status]}
-            </a>
-          ))}
-        </div>
-      </div>
+    <div class="filters">
+      <select id="category-filter" class="filter-select">
+        <option value="">All Categories</option>
+        {categories.map(cat => (
+          <option value={cat} selected={categoryFilter === cat}>
+            {categoryLabels[cat]}
+          </option>
+        ))}
+      </select>
+
+      <select id="status-filter" class="filter-select">
+        <option value="">All Statuses</option>
+        {statuses.map(status => (
+          <option value={status} selected={statusFilter === status}>
+            {statusLabels[status]}
+          </option>
+        ))}
+      </select>
     </div>
 
     {sortedProjects.length > 0 ? (
@@ -104,6 +93,20 @@ const statusLabels: Record<string, string> = {
         <p>No projects found with those filters.</p>
       </div>
     )}
+    <div id="search-no-results" class="no-results" style="display: none;">
+      <p>No projects match your search.</p>
+    </div>
+    <div id="filter-no-results" class="no-results" style="display: none;">
+      <p>No projects found with those filters.</p>
+    </div>
   </div>
 </Base>
+
+<script>
+  import { initProjectSearch } from '../../scripts/projectSearch';
+  import { initFilterDropdowns } from '../../scripts/filterDropdowns';
+
+  initProjectSearch();
+  initFilterDropdowns();
+</script>
 

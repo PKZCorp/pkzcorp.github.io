@@ -32,7 +32,7 @@ const categoryLabels: Record<string, string> = {
 };
 ---
 
-<a href={`/projetos/${slug}`} class="project-card">
+<a href={`/projetos/${slug}`} class="project-card" data-category={category} data-status={status}>
   <div class="project-thumbnail">
     <img src={thumbnail} alt={title} />
     <div class="project-badges">
