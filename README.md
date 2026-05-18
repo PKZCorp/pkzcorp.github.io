@@ -120,7 +120,3 @@ See [docs/plano-site-coletivo.md](docs/plano-site-coletivo.md) for full project 
 ## 📄 License
 
 All rights reserved. © 2026 PKZCorp
-
-
-pedrokszcorp@gmail.com
-PKZCorp_2024
