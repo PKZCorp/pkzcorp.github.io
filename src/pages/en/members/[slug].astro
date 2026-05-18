@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import Icon from '../../../components/Icon.astro';
@@ -70,7 +71,7 @@ const { name, tagline, bio, avatar, skills, links, productions } = member.data;
     </div>
 
     <div class="back-link">
-      <a href="/en/members">← Back to members</a>
+      <a href={getRelativeLocaleUrl('en', 'members')}>← Back to members</a>
     </div>
   </div>
 </Base>
