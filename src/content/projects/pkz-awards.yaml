@@ -1,0 +1,21 @@
+slug: pkz-awards-2027
+title: "PKZ Awards 2027"
+category: event
+description: >-
+  An awards show celebrating the best of PKZCorp's projects and community contributions in 2027.
+  Categories include "Best Game," "Best Art," "Best Community Member," and more.
+  Hosted as a live stream on YouTube with community voting and special guest appearances.
+
+status: planned
+year: 2027
+members:
+  - Pedroksz
+thumbnail: https://api.dicebear.com/9.x/shapes/svg?seed=pkzawards
+
+tags:
+  - awards
+  - community
+  - celebration
+
+links:
+  youtube: https://www.youtube.com/@PKZCORP
