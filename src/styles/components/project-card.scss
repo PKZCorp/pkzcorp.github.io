@@ -4,16 +4,16 @@
 .project-card {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $space-md;
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s ease;
-  border-radius: 8px;
+  transition: all $motion-normal $easing-in-out;
+  border-radius: $radius-md;
   overflow: hidden;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: $transform-hover-lift-md;
+    box-shadow: $shadow-lg;
   }
 }
 
@@ -21,9 +21,9 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 6px;
+  border-radius: $radius-sm;
   overflow: hidden;
-  background: var(--color-surface);
+  background: $color-surface;
 
   img {
     width: 100%;
@@ -34,44 +34,44 @@
 
 .project-badges {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: $space-sm;
+  right: $space-sm;
   display: flex;
-  gap: 0.5rem;
+  gap: $space-xs;
 }
 
 .badge {
   display: inline-block;
-  font-size: 0.7rem;
-  padding: 0.4rem 0.6rem;
-  border-radius: 4px;
+  font-size: $text-caption;
+  padding: $space-xs $space-sm;
+  border-radius: $radius-sm;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: $letter-spacing-wide;
 
   &.category {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba($color-brand-black, 0.7);
     color: white;
   }
 
   &.status {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba($color-brand-white, 0.2);
     color: white;
 
     &.released {
-      background: rgba(34, 197, 94, 0.8);
+      background: rgba($color-success, 0.8);
     }
 
     &.wip {
-      background: rgba(59, 130, 246, 0.8);
+      background: rgba($color-info, 0.8);
     }
 
     &.jam {
-      background: rgba(168, 85, 247, 0.8);
+      background: rgba($color-brand-purple, 0.8);
     }
 
     &.archived {
-      background: rgba(107, 114, 128, 0.8);
+      background: rgba($color-text-muted, 0.8);
     }
   }
 }
@@ -79,18 +79,19 @@
 .project-info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: $space-xs;
+  line-height: $line-height-normal;
 }
 
 .project-title {
-  font-size: 1.1rem;
+  font-size: $text-body;
   font-weight: 600;
   margin: 0;
 }
 
 .project-description {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  font-size: $text-body-small;
+  color: $color-text-secondary;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -99,7 +100,7 @@
 }
 
 .project-year {
-  font-size: 0.85rem;
-  color: var(--color-text-secondary);
-  margin: 0.25rem 0 0 0;
+  font-size: $text-caption;
+  color: $color-text-secondary;
+  margin: $space-xs 0 0 0;
 }

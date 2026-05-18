@@ -21,7 +21,7 @@
   p {
     color: $color-text-secondary;
     margin-bottom: $space-md;
-    line-height: 1.8;
+    line-height: $line-height-relaxed;
 
     &:last-child {
       margin-bottom: 0;

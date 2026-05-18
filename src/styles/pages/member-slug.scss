@@ -3,65 +3,65 @@
 
 .member-hero {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: $size-avatar-lg 1fr;
+  gap: $space-lg;
+  margin-bottom: $space-2xl;
   align-items: start;
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: $space-lg;
   }
 }
 
 .hero-avatar {
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
+  width: $size-avatar-lg;
+  height: $size-avatar-lg;
+  border-radius: $radius-md;
   object-fit: cover;
 
-  @media (max-width: 768px) {
-    width: 150px;
-    height: 150px;
+  @media (max-width: $breakpoint-tablet) {
+    width: $size-avatar-md;
+    height: $size-avatar-md;
   }
 }
 
 .hero-info {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $space-md;
 
   h1 {
-    font-size: 2rem;
+    font-size: $text-h1;
     margin: 0;
   }
 }
 
 .tagline {
   font-size: 1.2rem;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
   margin: 0;
   font-weight: 500;
 }
 
 .member-links {
   display: flex;
-  gap: 1rem;
+  gap: $space-md;
 
   a {
     display: inline-flex;
-    width: 40px;
-    height: 40px;
+    width: $size-avatar-sm;
+    height: $size-avatar-sm;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
     color: inherit;
-    transition: all 0.2s ease;
+    transition: all $motion-normal $easing-in-out;
 
     &:hover {
-      background: var(--color-surface);
-      border-color: var(--color-primary);
+      background: $color-surface;
+      border-color: $color-accent;
     }
   }
 }
@@ -69,36 +69,36 @@
 .member-content {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  margin-bottom: 3rem;
+  gap: $space-xl;
+  margin-bottom: $space-2xl;
 
   section {
     h2 {
-      font-size: 1.3rem;
-      margin: 0 0 1rem 0;
+      font-size: $text-h2;
+      margin: 0 0 $space-md 0;
     }
   }
 }
 
 .bio-section p {
-  line-height: 1.6;
-  color: var(--color-text-secondary);
+  line-height: $line-height-normal;
+  color: $color-text-secondary;
 }
 
 .skills-section {
   .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: $space-sm;
   }
 
   .skill-badge {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    font-size: 0.9rem;
+    padding: $space-xs $space-md;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    font-size: $text-body-small;
   }
 }
 
@@ -106,25 +106,25 @@
   .productions-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: $space-md;
   }
 
   .production-item {
-    padding: 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    transition: all 0.2s ease;
+    padding: $space-md;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    transition: all $motion-normal $easing-in-out;
 
     &:hover {
-      border-color: var(--color-primary);
-      background: var(--color-surface);
+      border-color: $color-accent;
+      background: $color-surface;
     }
   }
 
   .production-link {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: $space-xs;
     text-decoration: none;
     color: inherit;
 
@@ -134,20 +134,20 @@
   }
 
   .production-meta {
-    font-size: 0.85rem;
-    color: var(--color-text-secondary);
+    font-size: $text-caption;
+    color: $color-text-secondary;
   }
 }
 
 .back-link {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-border);
+  margin-top: $space-2xl;
+  padding-top: $space-lg;
+  border-top: 1px solid $color-border;
 
   a {
-    color: var(--color-primary);
+    color: $color-accent;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: opacity $motion-normal $easing-in-out;
 
     &:hover {
       opacity: 0.8;

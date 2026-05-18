@@ -18,7 +18,7 @@
   text-decoration: none;
 
   &:active {
-    transform: scale(0.98);
+    transform: $transform-active-press;
   }
 
   &:focus {

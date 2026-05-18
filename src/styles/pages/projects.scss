@@ -2,93 +2,93 @@
 @use '../_mixins' as *;
 
 .intro-text {
-  font-size: 1.1rem;
-  color: var(--color-text-secondary);
-  margin: 0.5rem 0 2rem 0;
+  font-size: $text-body-small;
+  color: $color-text-secondary;
+  margin: $space-sm 0 $space-lg 0;
 }
 
 .search-bar {
-  margin-bottom: 2rem;
+  margin-bottom: $space-lg;
 }
 
 .search-input {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: var(--color-surface);
-  color: var(--color-text-primary);
-  font-size: 1rem;
+  padding: $space-sm $space-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+  color: $color-text-primary;
+  font-size: $text-body;
   font-family: $font-body;
-  transition: all 0.2s ease;
+  transition: all $motion-normal $easing-in-out;
 
   &::placeholder {
-    color: var(--color-text-secondary);
+    color: $color-text-secondary;
   }
 
   &:focus {
     outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 2px rgba(255, 140, 66, 0.1);
+    border-color: $color-accent;
+    box-shadow: 0 0 0 2px rgba($color-brand-orange, 0.1);
   }
 }
 
 .filters {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--color-border);
+  gap: $space-md;
+  margin-bottom: $space-2xl;
+  padding-bottom: $space-lg;
+  border-bottom: 1px solid $color-border;
 
-  @media (max-width: 480px) {
+  @media (max-width: $breakpoint-mobile) {
     flex-direction: column;
   }
 }
 
 .filter-select {
   flex: 1;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: var(--color-surface);
-  color: var(--color-text-primary);
-  font-size: 1rem;
+  padding: $space-sm $space-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+  color: $color-text-primary;
+  font-size: $text-body;
   font-family: $font-body;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all $motion-normal $easing-in-out;
 
   &:hover {
-    border-color: var(--color-accent);
+    border-color: $color-accent;
   }
 
   &:focus {
     outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 2px rgba(255, 140, 66, 0.1);
+    border-color: $color-accent;
+    box-shadow: 0 0 0 2px rgba($color-brand-orange, 0.1);
   }
 
   option {
-    background: var(--color-surface);
-    color: var(--color-text-primary);
+    background: $color-surface;
+    color: $color-text-primary;
   }
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax($size-grid-min-lg, 1fr));
+  gap: $space-lg;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(auto-fit, minmax($size-grid-min-sm, 1fr));
   }
-  
-  @media (max-width: 480px) {
+
+  @media (max-width: $breakpoint-mobile) {
     grid-template-columns: 1fr;
   }
 }
 
 .no-results {
   text-align: center;
-  padding: 3rem 1rem;
-  color: var(--color-text-secondary);
+  padding: $space-2xl $space-md;
+  color: $color-text-secondary;
 }

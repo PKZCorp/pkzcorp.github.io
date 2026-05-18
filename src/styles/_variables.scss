@@ -90,3 +90,40 @@ $hero-height: 70vh;
 $hero-height-mobile: 50vh;
 $hero-max-width: 800px;
 $hero-content-max-width: 600px;
+
+/* ===== Typography - Line Heights ===== */
+$line-height-tight: 1.3;
+$line-height-normal: 1.6;
+$line-height-relaxed: 1.7;
+$line-height-loose: 1.8;
+
+/* ===== Typography - Letter Spacing ===== */
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.5px;
+
+/* ===== Aspect Ratios ===== */
+$aspect-ratio-square: 1 / 1;
+$aspect-ratio-video: 16 / 9;
+
+/* ===== Opacity Scale ===== */
+$opacity-subtle: 0.1;
+$opacity-light: 0.2;
+$opacity-medium: 0.3;
+$opacity-half: 0.5;
+$opacity-heavy: 0.8;
+
+/* ===== Interactive Transforms ===== */
+$transform-hover-lift-sm: translateY(-2px);
+$transform-hover-lift-md: translateY(-4px);
+$transform-active-press: scale(0.98);
+
+/* ===== Common Sizes ===== */
+$size-icon-sm: 18px;
+$size-icon-md: 20px;
+$size-icon-lg: 24px;
+$size-avatar-sm: 40px;
+$size-avatar-md: 150px;
+$size-avatar-lg: 200px;
+$size-grid-min-sm: 200px;
+$size-grid-min-md: 250px;
+$size-grid-min-lg: 280px;
