@@ -1,33 +1,33 @@
 ---
 // src/pages/index.astro
-// Home page - entry point for the site
+// Home page (Portuguese) - entry point for the site
 
-import { useBaseUrl } from '../lib/useBaseUrl';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import Base from '../layouts/Base.astro';
 import '../styles/components/hero.scss';
 import '../styles/components/buttons.scss';
 import '../styles/components/sections.scss';
 ---
 
-<Base title="PKZCorp — Creative Collective">
+<Base title="PKZCorp — Coletivo Criativo">
   <section class="hero">
-    <h1>Welcome to PKZCorp</h1>
-    <p>A creative tech collective bringing software and art together.</p>
+    <h1>Bem-vindo ao PKZCorp</h1>
+    <p>Um coletivo criativo de tecnologia reunindo software e arte.</p>
     <div class="btn-group">
-      <a href={useBaseUrl('/membros')} class="btn btn-primary">Meet the Team</a>
-      <a href={useBaseUrl('/projetos')} class="btn btn-secondary">View Projects</a>
+      <a href={getRelativeLocaleUrl('pt-br', 'membros')} class="btn btn-primary">Conheça o Time</a>
+      <a href={getRelativeLocaleUrl('pt-br', 'projetos')} class="btn btn-secondary">Veja os Projetos</a>
     </div>
   </section>
 
   <div class="container">
     <section class="section">
-      <h2>Featured Projects</h2>
-      <p>Coming soon — projects will be listed here.</p>
+      <h2>Projetos Destacados</h2>
+      <p>Em breve — os projetos serão listados aqui.</p>
     </section>
 
     <section class="section">
-      <h2>Active Jams</h2>
-      <p>Coming soon — active creative challenges will appear here.</p>
+      <h2>Jams Ativos</h2>
+      <p>Em breve — os desafios criativos ativos aparecerão aqui.</p>
     </section>
   </div>
 </Base>

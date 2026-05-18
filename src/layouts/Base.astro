@@ -1,8 +1,9 @@
 ---
 // src/layouts/Base.astro
 // Main layout for all pages - imports global and layout styles
+// Supports i18n with proper locale detection
 
-import { useBaseUrl } from '../lib/useBaseUrl';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import '../styles/global.scss';
 import '../styles/layout.scss';
 import SiteLogo from '../components/SiteLogo.astro';
@@ -14,10 +15,52 @@ interface Props {
 }
 
 const { title = "PKZCorp", description = "Creative tech collective" } = Astro.props;
+
+// Get current locale from URL
+const currentLocale = Astro.currentLocale || 'pt-br';
+const langAttribute = currentLocale === 'pt-br' ? 'pt-BR' : 'en';
+
+// Navigation labels based on locale
+const navLabels = currentLocale === 'pt-br' 
+  ? {
+      home: 'Home',
+      about: 'Sobre',
+      members: 'Membros',
+      projects: 'Projetos',
+      jams: 'Jams',
+      contact: 'Contato'
+    }
+  : {
+      home: 'Home',
+      about: 'About',
+      members: 'Members',
+      projects: 'Projects',
+      jams: 'Jams',
+      contact: 'Contact'
+    };
+
+// Nav link routes based on locale
+const navLinks = currentLocale === 'pt-br'
+  ? [
+      { href: getRelativeLocaleUrl('pt-br', ''), label: navLabels.home },
+      { href: getRelativeLocaleUrl('pt-br', 'sobre'), label: navLabels.about },
+      { href: getRelativeLocaleUrl('pt-br', 'membros'), label: navLabels.members },
+      { href: getRelativeLocaleUrl('pt-br', 'projetos'), label: navLabels.projects },
+      { href: getRelativeLocaleUrl('pt-br', 'jams'), label: navLabels.jams },
+      { href: getRelativeLocaleUrl('pt-br', 'contato'), label: navLabels.contact }
+    ]
+  : [
+      { href: getRelativeLocaleUrl('en', ''), label: navLabels.home },
+      { href: getRelativeLocaleUrl('en', 'sobre'), label: navLabels.about },
+      { href: getRelativeLocaleUrl('en', 'membros'), label: navLabels.members },
+      { href: getRelativeLocaleUrl('en', 'projetos'), label: navLabels.projects },
+      { href: getRelativeLocaleUrl('en', 'jams'), label: navLabels.jams },
+      { href: getRelativeLocaleUrl('en', 'contato'), label: navLabels.contact }
+    ];
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang={langAttribute}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,7 +81,7 @@ const { title = "PKZCorp", description = "Creative tech collective" } = Astro.pr
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <script src={useBaseUrl('/js/nav.js')} defer></script>
+    <script src="/js/nav.js" defer></script>
   </head>
 
   <body>
@@ -50,12 +93,15 @@ const { title = "PKZCorp", description = "Creative tech collective" } = Astro.pr
         </div>
         <button class="menu-button" aria-expanded="false" aria-controls="main-nav" id="menu-button">☰</button>
         <nav class="nav" id="main-nav" aria-hidden="true">
-          <a href={useBaseUrl('/')}><Icon name="home" size={18} class="nav-icon" aria-hidden="true"/>Home</a>
-          <a href={useBaseUrl('/sobre')}><Icon name="info" size={18} class="nav-icon" aria-hidden="true"/>Sobre</a>
-          <a href={useBaseUrl('/membros')}><Icon name="users" size={18} class="nav-icon" aria-hidden="true"/>Membros</a>
-          <a href={useBaseUrl('/projetos')}><Icon name="project" size={18} class="nav-icon" aria-hidden="true"/>Projetos</a>
-          <a href={useBaseUrl('/jams')}><Icon name="spark" size={18} class="nav-icon" aria-hidden="true"/>Jams</a>
-          <a href={useBaseUrl('/contato')}><Icon name="mail" size={18} class="nav-icon" aria-hidden="true"/>Contato</a>
+          {navLinks.map(link => (
+            <a href={link.href}>
+              <Icon name={link.label === 'Home' || link.label === navLabels.home ? 'home' : link.label === navLabels.about || link.label === 'About' ? 'info' : link.label === navLabels.members || link.label === 'Members' ? 'users' : link.label === navLabels.projects || link.label === 'Projects' ? 'project' : link.label === navLabels.jams || link.label === 'Jams' ? 'spark' : 'mail'} size={18} class="nav-icon" aria-hidden="true"/>
+              {link.label}
+            </a>
+          ))}
+          <a href={currentLocale === 'pt-br' ? getRelativeLocaleUrl('en', '') : getRelativeLocaleUrl('pt-br', '')}>
+            {currentLocale === 'pt-br' ? 'EN' : 'PT'}
+          </a>
         </nav>
       </div>
     </header>
