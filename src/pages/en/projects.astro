@@ -1,10 +1,178 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = await getCollection('projects');
+
+const categoryFilter = Astro.url.searchParams.get('category');
+const statusFilter = Astro.url.searchParams.get('status');
+
+const filteredProjects = projects.filter(project => {
+  if (categoryFilter && project.data.category !== categoryFilter) return false;
+  if (statusFilter && project.data.status !== statusFilter) return false;
+  return true;
+});
+
+const sortedProjects = filteredProjects.sort((a, b) => b.data.year - a.data.year);
+
+const categories = Array.from(new Set(projects.map(p => p.data.category))).sort();
+const statuses = Array.from(new Set(projects.map(p => p.data.status))).sort();
+
+const categoryLabels: Record<string, string> = {
+  game: 'Games',
+  music: 'Music',
+  software: 'Software',
+  poem: 'Poems',
+  art: 'Art',
+  collab: 'Collaboration',
+  other: 'Other',
+};
+
+const statusLabels: Record<string, string> = {
+  released: 'Released',
+  wip: 'WIP',
+  jam: 'Jam',
+  archived: 'Archived',
+};
 ---
 
-<Base title="Projects — PKZCorp">
+<Base title="Projects — PKZCorp" description="Explore PKZCorp projects">
   <div class="container">
     <h1>Projects</h1>
-    <p>Coming soon — projects will be listed here with filters.</p>
+    <p class="intro-text">A collection of creative and technical works</p>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label>Category</label>
+        <div class="filter-buttons">
+          <a
+            href="/en/projects"
+            class={`filter-btn ${!categoryFilter ? 'active' : ''}`}
+          >
+            All
+          </a>
+          {categories.map(cat => (
+            <a
+              href={`/en/projects?category=${cat}${statusFilter ? `&status=${statusFilter}` : ''}`}
+              class={`filter-btn ${categoryFilter === cat ? 'active' : ''}`}
+            >
+              {categoryLabels[cat]}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Status</label>
+        <div class="filter-buttons">
+          <a
+            href="/en/projects"
+            class={`filter-btn ${!statusFilter ? 'active' : ''}`}
+          >
+            All
+          </a>
+          {statuses.map(status => (
+            <a
+              href={`/en/projects?status=${status}${categoryFilter ? `&category=${categoryFilter}` : ''}`}
+              class={`filter-btn ${statusFilter === status ? 'active' : ''}`}
+            >
+              {statusLabels[status]}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {sortedProjects.length > 0 ? (
+      <div class="projects-grid">
+        {sortedProjects.map(project => (
+          <ProjectCard
+            slug={project.data.slug}
+            title={project.data.title}
+            category={project.data.category}
+            description={project.data.description}
+            thumbnail={project.data.thumbnail}
+            year={project.data.year}
+            status={project.data.status}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="no-results">
+        <p>No projects found with those filters.</p>
+      </div>
+    )}
   </div>
 </Base>
+
+<style lang="scss">
+.intro-text {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin: 0.5rem 0 2rem 0;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+
+  &.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-text-secondary);
+}
+</style>

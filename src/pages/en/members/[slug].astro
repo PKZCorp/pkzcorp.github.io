@@ -1,0 +1,231 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+
+export async function getStaticPaths() {
+  const members = await getCollection('members');
+  return members.map(member => ({
+    params: { slug: member.data.slug },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+const { name, tagline, bio, avatar, skills, links, productions } = member.data;
+---
+
+<Base title={`${name} — PKZCorp`} description={tagline}>
+  <div class="container">
+    <div class="member-hero">
+      <img src={avatar} alt={name} class="hero-avatar" />
+      <div class="hero-info">
+        <h1>{name}</h1>
+        <p class="tagline">{tagline}</p>
+        {links && (
+          <div class="member-links">
+            {Object.entries(links).map(([key, url]) => (
+              <a href={url} target="_blank" rel="noopener noreferrer" aria-label={key}>
+                <Icon name={key} size={20} />
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class="member-content">
+      <section class="bio-section">
+        <h2>About</h2>
+        <p>{bio}</p>
+      </section>
+
+      {skills && skills.length > 0 && (
+        <section class="skills-section">
+          <h2>Skills</h2>
+          <div class="skills-list">
+            {skills.map(skill => (
+              <span class="skill-badge">{skill}</span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {productions && productions.length > 0 && (
+        <section class="productions-section">
+          <h2>Productions</h2>
+          <div class="productions-list">
+            {productions.map(prod => (
+              <div class="production-item">
+                <a href={prod.url} target="_blank" rel="noopener noreferrer" class="production-link">
+                  <strong>{prod.title}</strong>
+                  <span class="production-meta">{prod.type} • {prod.year}</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+
+    <div class="back-link">
+      <a href="/en/members">← Back to members</a>
+    </div>
+  </div>
+</Base>
+
+<style lang="scss">
+.member-hero {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.hero-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-weight: 500;
+}
+
+.member-links {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: inherit;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--color-surface);
+      border-color: var(--color-primary);
+    }
+  }
+}
+
+.member-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+
+  section {
+    h2 {
+      font-size: 1.3rem;
+      margin: 0 0 1rem 0;
+    }
+  }
+}
+
+.bio-section p {
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.skills-section {
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .skill-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    font-size: 0.9rem;
+  }
+}
+
+.productions-section {
+  .productions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .production-item {
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--color-primary);
+      background: var(--color-surface);
+    }
+  }
+
+  .production-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-decoration: none;
+    color: inherit;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .production-meta {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+  }
+}
+
+.back-link {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+</style>

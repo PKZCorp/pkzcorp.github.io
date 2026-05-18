@@ -1,7 +1,7 @@
 ---
 import { CodeXml, ExternalLink, House, Info, Mail, Sparkles, SquareKanban, Users } from '@lucide/astro';
 
-const ICONS = {
+const ICONS: Record<string, any> = {
 	home: House,
 	info: Info,
 	users: Users,
@@ -10,18 +10,22 @@ const ICONS = {
 	mail: Mail,
 	repo: CodeXml,
 	external: ExternalLink,
+	// Social media: use external icon for unknown services
+	github: ExternalLink,
+	itch: ExternalLink,
+	soundcloud: ExternalLink,
 };
 
 type IconName = keyof typeof ICONS;
 
 interface Props {
-	name?: IconName;
+	name?: IconName | string;
 	size?: number | string;
 	class?: string;
 }
 
 const { name = 'home', size = 16, class: cls = '' } = Astro.props as Props;
-const IconComponent = ICONS[name];
+const IconComponent = ICONS[name] || ExternalLink;
 ---
 
 <IconComponent size={size} class={cls} aria-hidden="true" />

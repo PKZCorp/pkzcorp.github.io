@@ -16,8 +16,9 @@ rules:
   - Open to any medium (game, music, visual art, interactive)
 
 dates:
+  announced: "2024-06-01"
+  theme_reveal: "2024-06-15"
   start: "2024-06-15"
   end: "2024-06-17"
-  submissions_until: "2024-06-17T23:59:59Z"
 
 cover: https://api.dicebear.com/9.x/shapes/svg?seed=jam

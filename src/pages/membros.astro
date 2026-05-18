@@ -1,10 +1,41 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import MemberCard from '../components/MemberCard.astro';
+
+const members = await getCollection('members');
+const sortedMembers = members.sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
 
-<Base title="Membros — PKZCorp">
+<Base title="Membros — PKZCorp" description="Conheça os membros da PKZCorp">
   <div class="container">
     <h1>Membros</h1>
-    <p>Em breve — os membros do time serão listados aqui.</p>
+    <p class="intro-text">Conheça o time criativo por trás da PKZCorp</p>
+
+    <div class="members-grid">
+      {sortedMembers.map(member => (
+        <MemberCard
+          slug={member.data.slug}
+          name={member.data.name}
+          avatar={member.data.avatar}
+          tagline={member.data.tagline}
+          skills={member.data.skills}
+        />
+      ))}
+    </div>
   </div>
 </Base>
+
+<style lang="scss">
+.intro-text {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin: 0.5rem 0 2rem 0;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+</style>

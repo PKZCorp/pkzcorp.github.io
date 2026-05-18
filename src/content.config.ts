@@ -1,9 +1,10 @@
 import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 // Define the schema for Member profiles
 const membersCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '[!_]*.yaml', base: './src/content/members' }),
   schema: z.object({
     slug: z.string(),
     name: z.string(),
@@ -14,7 +15,7 @@ const membersCollection = defineCollection({
     links: z.record(z.string(), z.string()).optional(),
     productions: z.array(z.object({
       title: z.string(),
-      type: z.enum(['game', 'music', 'poem', 'art', 'software', 'other']),
+      type: z.enum(['game', 'music', 'poem', 'art', 'software', 'other', 'design', 'animation', 'album', 'audio-art']),
       url: z.string(),
       year: z.number(),
       description: z.string().optional(),
@@ -24,7 +25,7 @@ const membersCollection = defineCollection({
 
 // Define the schema for Projects
 const projectsCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '[!_]*.yaml', base: './src/content/projects' }),
   schema: z.object({
     slug: z.string(),
     title: z.string(),
@@ -43,7 +44,7 @@ const projectsCollection = defineCollection({
 
 // Define the schema for Jams
 const jamsCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '[!_]*.yaml', base: './src/content/jams' }),
   schema: z.object({
     slug: z.string(),
     title: z.string(),
@@ -78,3 +79,4 @@ export const collections = {
   'projects': projectsCollection,
   'jams': jamsCollection,
 };
+

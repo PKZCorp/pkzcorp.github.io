@@ -1,0 +1,312 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(project => ({
+    params: { slug: project.data.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { title, category, description, year, members, thumbnail, images, links, status, tags } = project.data;
+
+const categoryLabels: Record<string, string> = {
+  game: 'Game',
+  music: 'Music',
+  software: 'Software',
+  poem: 'Poem',
+  art: 'Art',
+  collab: 'Collaboration',
+  other: 'Other',
+};
+
+const statusLabels: Record<string, string> = {
+  released: 'Released',
+  wip: 'WIP',
+  jam: 'Jam',
+  archived: 'Archived',
+};
+---
+
+<Base title={`${title} — PKZCorp`} description={description}>
+  <div class="container">
+    <div class="project-hero">
+      <img src={thumbnail} alt={title} class="hero-image" />
+      <div class="hero-overlay">
+        <div class="hero-badges">
+          <span class="badge category">{categoryLabels[category]}</span>
+          <span class={`badge status ${status}`}>{statusLabels[status]}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-header">
+      <h1>{title}</h1>
+      <p class="project-year">{year}</p>
+      {links && (
+        <div class="project-links">
+          {Object.entries(links).map(([key, url]) => (
+            <a href={url} target="_blank" rel="noopener noreferrer" class="link-btn">
+              <Icon name={key} size={18} />
+              {key.charAt(0).toUpperCase() + key.slice(1)}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div class="project-content">
+      <section class="description-section">
+        <h2>About</h2>
+        <p>{description}</p>
+      </section>
+
+      {members && members.length > 0 && (
+        <section class="members-section">
+          <h2>Members</h2>
+          <div class="members-list">
+            {members.map(memberSlug => (
+              <a href={`/en/members/${memberSlug}`} class="member-link">
+                {memberSlug}
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {tags && tags.length > 0 && (
+        <section class="tags-section">
+          <h2>Tags</h2>
+          <div class="tags-list">
+            {tags.map(tag => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {images && images.length > 0 && (
+        <section class="images-section">
+          <h2>Gallery</h2>
+          <div class="images-grid">
+            {images.map(img => (
+              <img src={img} alt={title} />
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+
+    <div class="back-link">
+      <a href="/en/projects">← Back to projects</a>
+    </div>
+  </div>
+</Base>
+
+<style lang="scss">
+.project-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-surface);
+  margin-bottom: 3rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+
+.hero-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.category {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+
+  &.status {
+    color: white;
+
+    &.released {
+      background: rgba(34, 197, 94, 0.8);
+    }
+
+    &.wip {
+      background: rgba(59, 130, 246, 0.8);
+    }
+
+    &.jam {
+      background: rgba(168, 85, 247, 0.8);
+    }
+
+    &.archived {
+      background: rgba(107, 114, 128, 0.8);
+    }
+  }
+}
+
+.project-header {
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+  }
+}
+
+.project-year {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 1.5rem 0;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-surface);
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+  }
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 3rem;
+
+  section {
+    h2 {
+      font-size: 1.3rem;
+      margin: 0 0 1rem 0;
+    }
+  }
+}
+
+.description-section p {
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+}
+
+.members-section {
+  .members-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .member-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+  }
+}
+
+.tags-section {
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+.images-section {
+  .images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+
+    img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+  }
+}
+
+.back-link {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+</style>
