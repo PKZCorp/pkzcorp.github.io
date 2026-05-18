@@ -1,0 +1,60 @@
+---
+// Language picker dropdown component
+// https://docs.astro.build/en/recipes/i18n/#let-users-switch-between-languages
+import { getRelativeLocaleUrl, getPathByLocale } from 'astro:i18n';
+import { getLangFromUrl } from '../i18n/utils';
+import '../styles/components/language-picker.scss';
+
+const languages: Record<string, string> = {
+  'en': 'EN',
+  'pt-br': 'PT'
+};
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentLabel = languages[currentLang] || languages['pt-br'];
+---
+
+<div class="language-picker-wrapper">
+  <button class="language-picker-button" aria-label="Select language" aria-expanded="false" aria-controls="language-menu">
+    {currentLabel}
+  </button>
+  <ul class="language-picker-menu" id="language-menu" role="menu">
+    {Object.entries(languages).map(([lang, label]) => (
+      <li role="menuitem">
+        <a href={getRelativeLocaleUrl(lang, '')} class={currentLang === lang ? 'active' : ''}>
+          {label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  const button = document.querySelector('.language-picker-button');
+  const menu = document.querySelector('.language-picker-menu');
+
+  if (button && menu) {
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('visible');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as Element;
+      if (!target?.closest('.language-picker-wrapper')) {
+        button.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('visible');
+      }
+    });
+
+    // Close menu when a link is clicked
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        button.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('visible');
+      });
+    });
+  }
+</script>

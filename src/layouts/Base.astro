@@ -4,10 +4,12 @@
 // Supports i18n with proper locale detection
 
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations, getNavLinks, getIconForNavItem } from '../i18n/utils';
 import '../styles/global.scss';
 import '../styles/layout.scss';
 import SiteLogo from '../components/SiteLogo.astro';
 import Icon from '../components/Icon.astro';
+import LanguagePicker from '../components/LanguagePicker.astro';
 
 interface Props {
   title?: string;
@@ -20,43 +22,10 @@ const { title = "PKZCorp", description = "Creative tech collective" } = Astro.pr
 const currentLocale = Astro.currentLocale || 'pt-br';
 const langAttribute = currentLocale === 'pt-br' ? 'pt-BR' : 'en';
 
-// Navigation labels based on locale
-const navLabels = currentLocale === 'pt-br' 
-  ? {
-      home: 'Home',
-      about: 'Sobre',
-      members: 'Membros',
-      projects: 'Projetos',
-      jams: 'Jams',
-      contact: 'Contato'
-    }
-  : {
-      home: 'Home',
-      about: 'About',
-      members: 'Members',
-      projects: 'Projects',
-      jams: 'Jams',
-      contact: 'Contact'
-    };
-
-// Nav link routes based on locale
-const navLinks = currentLocale === 'pt-br'
-  ? [
-      { href: getRelativeLocaleUrl('pt-br', ''), label: navLabels.home },
-      { href: getRelativeLocaleUrl('pt-br', 'sobre'), label: navLabels.about },
-      { href: getRelativeLocaleUrl('pt-br', 'membros'), label: navLabels.members },
-      { href: getRelativeLocaleUrl('pt-br', 'projetos'), label: navLabels.projects },
-      { href: getRelativeLocaleUrl('pt-br', 'jams'), label: navLabels.jams },
-      { href: getRelativeLocaleUrl('pt-br', 'contato'), label: navLabels.contact }
-    ]
-  : [
-      { href: getRelativeLocaleUrl('en', ''), label: navLabels.home },
-      { href: getRelativeLocaleUrl('en', 'sobre'), label: navLabels.about },
-      { href: getRelativeLocaleUrl('en', 'membros'), label: navLabels.members },
-      { href: getRelativeLocaleUrl('en', 'projetos'), label: navLabels.projects },
-      { href: getRelativeLocaleUrl('en', 'jams'), label: navLabels.jams },
-      { href: getRelativeLocaleUrl('en', 'contato'), label: navLabels.contact }
-    ];
+// Get translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const navLinks = getNavLinks(lang);
 ---
 
 <!doctype html>
@@ -95,13 +64,11 @@ const navLinks = currentLocale === 'pt-br'
         <nav class="nav" id="main-nav" aria-hidden="true">
           {navLinks.map(link => (
             <a href={link.href}>
-              <Icon name={link.label === 'Home' || link.label === navLabels.home ? 'home' : link.label === navLabels.about || link.label === 'About' ? 'info' : link.label === navLabels.members || link.label === 'Members' ? 'users' : link.label === navLabels.projects || link.label === 'Projects' ? 'project' : link.label === navLabels.jams || link.label === 'Jams' ? 'spark' : 'mail'} size={18} class="nav-icon" aria-hidden="true"/>
+              <Icon name={getIconForNavItem(link.key)} size={18} class="nav-icon" aria-hidden="true"/>
               {link.label}
             </a>
           ))}
-          <a href={currentLocale === 'pt-br' ? getRelativeLocaleUrl('en', '') : getRelativeLocaleUrl('pt-br', '')}>
-            {currentLocale === 'pt-br' ? 'EN' : 'PT'}
-          </a>
+          <LanguagePicker />
         </nav>
       </div>
     </header>
@@ -114,7 +81,7 @@ const navLinks = currentLocale === 'pt-br'
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-          <p>&copy; 2026 PKZCorp. All rights reserved.</p>
+          <p>{t('footer.copyright')}</p>
           <div class="footer-social">
             <a href="https://github.com/PKZCorp/pkzcorp.github.io" aria-label="Repository" class="social-link"><Icon name="repo" size={20} /></a>
             <a href="mailto:pedrokszcorp@gmail.com" aria-label="Email" class="social-link"><Icon name="mail" size={20} /></a>
