@@ -17,7 +17,7 @@ export function useTranslations(lang: keyof typeof ui) {
 
 export function getNavLinks(lang: keyof typeof ui) {
   const t = useTranslations(lang);
-  
+
   return navItems.map(navKey => {
     const path = navRoutes[navKey][lang === 'pt-br' ? 'pt_br' : 'en'];
     return {
