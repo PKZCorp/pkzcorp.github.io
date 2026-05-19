@@ -4,6 +4,7 @@
 slug: jam-slug              # REQUIRED: unique identifier. Example: game-jam-may, music-jam-2026
 
 title: "Jam Title"          # REQUIRED: display name. Example: "May Game Jam 2026"
+title_en: "Jam Title"       # OPTIONAL: English display name.
 type: game                  # REQUIRED: one of: game, music, poem, art, mixed
 
 status: upcoming            # REQUIRED: one of: upcoming, active, voting, closed
@@ -12,10 +13,19 @@ brief: >
   Explain the theme (if revealed), rules, inspiration, and spirit of the jam.
   This is what people read when deciding to participate.
 
+brief_en: >
+  OPTIONAL: English version of the jam briefing.
+
 theme: "[THEME HIDDEN]"     # Set to "[THEME HIDDEN]" before reveal.
                             # Update to actual theme on theme_reveal date.
+theme_en: "[THEME HIDDEN]"  # OPTIONAL: English version of the theme label.
 
 rules:                      # REQUIRED: list of jam rules
+  - Rule 1. Example: "You have 48 hours to complete your entry"
+  - Rule 2. Example: "You must use only free tools"
+  - Rule 3
+
+rules_en:                   # OPTIONAL: English version of the jam rules.
   - Rule 1. Example: "You have 48 hours to complete your entry"
   - Rule 2. Example: "You must use only free tools"
   - Rule 3
@@ -32,7 +42,9 @@ cover: /assets/jams/jam-slug/cover.png  # OPTIONAL: hero image for jam page
 submissions:                # OPTIONAL: list of submitted work
   - member: member-slug
     title: "Submission Title"
+    title_en: "Submission Title"
     description: "What this entry is / short blurb"
+    description_en: "What this entry is / short blurb"
     url: https://link-to-work.com
     highlight: false        # Set to true for featured submission (picks of the jam)
     media:
@@ -41,6 +53,9 @@ submissions:                # OPTIONAL: list of submitted work
 result_note: >
   OPTIONAL: Text published after jam closes.
   Can include reflections, standout entries, links for replay, etc.
+
+result_note_en: >
+  OPTIONAL: English version of the post-jam note.
 
 # Before the jam starts, members send their work.
 # Maintainer adds submissions to this file and marks some as highlight: true.

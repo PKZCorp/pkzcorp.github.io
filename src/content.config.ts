@@ -56,11 +56,15 @@ const jamsCollection = defineCollection({
   schema: z.object({
     slug: z.string(),
     title: z.string(),
+    title_en: z.string().optional(),
     type: z.enum(['game', 'music', 'poem', 'art', 'mixed']),
     status: z.enum(['upcoming', 'active', 'voting', 'closed']),
     brief: z.string(),
+    brief_en: z.string().optional(),
     theme: z.string(),
+    theme_en: z.string().optional(),
     rules: z.array(z.string()),
+    rules_en: z.array(z.string()).optional(),
     dates: z.object({
       announced: z.string(),
       theme_reveal: z.string(),
@@ -72,12 +76,15 @@ const jamsCollection = defineCollection({
     submissions: z.array(z.object({
       member: z.string(),
       title: z.string(),
+      title_en: z.string().optional(),
       description: z.string(),
+      description_en: z.string().optional(),
       url: z.string(),
       highlight: z.boolean(),
       media: z.array(z.string()).optional(),
     })).optional(),
     result_note: z.string().optional(),
+    result_note_en: z.string().optional(),
   }),
 });
 

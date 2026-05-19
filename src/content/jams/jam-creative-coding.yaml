@@ -1,15 +1,28 @@
 slug: jam-creative-coding
-title: "Creative Coding: Emergence"
+title: "Codificação Criativa: Emergência"
+title_en: "Creative Coding: Emergence"
 type: game
 status: active
 brief: >-
-  Create a playable experience that explores emergence — the idea that
+  Crie uma experiência jogável que explore emergência - a ideia de que
+  comportamentos complexos podem surgir de regras simples. Use qualquer
+  meio: jogo, arte interativa, música generativa ou sistema visual.
+
+brief_en: >-
+  Create a playable experience that explores emergence - the idea that
   complex behavior can arise from simple rules. Use any medium: game,
   interactive art, generative music, or visual system.
 
 theme: "Emergence"
+theme_en: "Emergence"
 
 rules:
+  - Todo o código e os assets devem ser criados durante o período da jam (48 horas)
+  - "Tamanho máximo da equipe: 1-3 pessoas"
+  - A submissão deve ser jogável/visualizável no navegador ou baixável
+  - Aberta a qualquer meio (jogo, música, arte visual, interativo)
+
+rules_en:
   - All code/assets must be created during jam period (48 hours)
   - Team size 1-3 people max
   - Submission must be playable/viewable in browser or downloadable
