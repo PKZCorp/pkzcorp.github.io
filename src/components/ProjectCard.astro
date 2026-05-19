@@ -32,6 +32,7 @@ const categoryLabels: Record<'en' | 'pt-br', Record<string, string>> = {
     poem: 'Poem',
     art: 'Art',
     collab: 'Collaboration',
+    event: 'Event',
     other: 'Other',
   },
   'pt-br': {
@@ -41,6 +42,7 @@ const categoryLabels: Record<'en' | 'pt-br', Record<string, string>> = {
     poem: 'Poesia',
     art: 'Arte',
     collab: 'Colaboração',
+    event: 'Evento',
     other: 'Outros',
   },
 };
@@ -49,7 +51,7 @@ const statusLabels: Record<string, string> = {
   planned: locale === 'pt-br' ? 'Planejado' : 'Planned',
   released: locale === 'pt-br' ? 'Lançado' : 'Released',
   wip: locale === 'pt-br' ? 'Em Desenvolvimento' : 'WIP',
-  jam: locale === 'pt-br' ? 'Game Jam' : 'Jam',
+  jam: 'Jam',
   archived: locale === 'pt-br' ? 'Arquivado' : 'Archived',
 };
 ---
