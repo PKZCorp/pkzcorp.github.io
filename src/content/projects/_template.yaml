@@ -1,37 +1,32 @@
 # Template for a project entry
-# Copy this file and rename to [slug].yaml (e.g., my-game.yaml)
+# Copy this file and rename to [slug].yaml (e.g., interactive-poetry.yaml)
 
-slug: project-slug          # REQUIRED: unique identifier for URL. Example: my-game, poetry-collection
-title: "Project Title"      # REQUIRED: display name
-category: game              # REQUIRED: one of: game, music, software, poem, art, collab, other
+slug: project-slug          # REQUIRED: unique identifier used in URLs. Must be lowercase, no spaces.
+title: "Project Title"     # REQUIRED: display name.
+category: software          # REQUIRED: one of: game, music, software, poem, art, collab, event, other
 
-description: >
-  REQUIRED: Full project description (multiple paragraphs).
-  Explain what it is, how it was made, technologies used,
-  inspiration, release status, anything visitors should know.
+description: >-
+  REQUIRED: Short project summary.
+  Describe what the project is, what it does, or why it exists.
 
-tags:                       # OPTIONAL: custom tags for filtering (e.g., pygame, puzzle, collaborative)
-  - tag-1
-  - tag-2
+status: wip                 # REQUIRED: one of: planned, released, wip, jam, archived
+year: 2026                  # REQUIRED: release or creation year
 
-status: released            # REQUIRED: one of: released, wip, jam, archived
-year: 2025                  # REQUIRED: year of release or creation
+members:                    # REQUIRED: list of member slugs involved in the project
+  - member-slug
 
-members:                    # REQUIRED: list of member slugs who worked on this
-  - member-slug-1
-  - member-slug-2
+thumbnail: /images/projects/project-slug/thumbnail.png  # REQUIRED: project thumbnail image or external image URL
 
-thumbnail: /assets/projects/project-slug/thumb.png  # REQUIRED: project thumbnail (16:9 aspect ratio)
+tags:                       # OPTIONAL: searchable tags
+  - tag-one
+  - tag-two
+
+links:                      # OPTIONAL: external links
+  site: https://example.com
+  github: https://github.com/pkzcorp/project-slug
 
 images:                     # OPTIONAL: gallery images
-  - /assets/projects/project-slug/image1.png
-  - /assets/projects/project-slug/image2.png
+  - /images/projects/project-slug/01.png
+  - /images/projects/project-slug/02.png
 
-links:                      # OPTIONAL: where to access/play/download the project
-  play: https://itch.io/...
-  source: https://github.com/...
-  download: https://...
-
-jam: jam-slug               # OPTIONAL: if this project came from a jam, reference the jam slug here
-
-# Assets should be stored in public/assets/projects/[slug]/
+jam: jam-slug               # OPTIONAL: related jam slug if the project came from a jam
