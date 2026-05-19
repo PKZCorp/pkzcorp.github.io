@@ -8,17 +8,23 @@ const membersCollection = defineCollection({
   schema: z.object({
     slug: z.string(),
     name: z.string(),
+    name_en: z.string().optional(),
     avatar: z.string(),
     tagline: z.string(),
+    tagline_en: z.string().optional(),
     bio: z.string(),
+    bio_en: z.string().optional(),
     skills: z.array(z.string()),
+    skills_en: z.array(z.string()).optional(),
     links: z.record(z.string(), z.string()).optional(),
     productions: z.array(z.object({
       title: z.string(),
+      title_en: z.string().optional(),
       type: z.enum(['game', 'music', 'poem', 'art', 'software', 'other', 'design', 'animation', 'album', 'audio-art']),
       url: z.string(),
       year: z.number(),
       description: z.string().optional(),
+      description_en: z.string().optional(),
     })).optional(),
   }),
 });

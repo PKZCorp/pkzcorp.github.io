@@ -1,13 +1,27 @@
 slug: markin
 name: Markin
+name_en: Markin
 avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=markin
-tagline: "musician, producer, sound designer"
+tagline: "músico, produtor, designer de som"
+tagline_en: "musician, producer, sound designer"
 bio: >
+  Músico experimental que transita por música eletrônica, ambient e generativa.
+  Apaixonado por sonificação e por música como código.
+  Explora os limites criativos de algoritmos e aleatoriedade.
+
+bio_en: >
   Experimental musician working across electronic, ambient, and generative music.
   Passionate about sonification and music as code.
   Exploring the creative boundaries of algorithms and randomness.
 
 skills:
+  - Produção de Música Eletrônica
+  - Design de Som
+  - Síntese
+  - Max/MSP
+  - Pure Data
+
+skills_en:
   - Electronic Music Production
   - Sound Design
   - Synthesis
@@ -20,11 +34,13 @@ links:
   bandcamp: https://markin.bandcamp.com
 
 productions:
-  - title: "Algorithmic Journeys"
+  - title: "Jornadas Algorítmicas"
+    title_en: "Algorithmic Journeys"
     url: https://example.com
     type: album
     year: 2024
-  - title: "Sonification of Climate Data"
+  - title: "Sonificação de Dados Climáticos"
+    title_en: "Sonification of Climate Data"
     url: https://example.com
     type: audio-art
     year: 2023

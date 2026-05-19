@@ -4,8 +4,22 @@ import Base from '../../layouts/Base.astro';
 import MemberCard from '../../components/MemberCard.astro';
 import '../../styles/pages/members.scss';
 
+const locale: 'en' | 'pt-br' = Astro.currentLocale === 'en' ? 'en' : 'pt-br';
 const members = await getCollection('members');
-const sortedMembers = members.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const getDisplayName = (member: typeof members[number]) => (
+  locale === 'en' && member.data.name_en ? member.data.name_en : member.data.name
+);
+
+const getDisplayTagline = (member: typeof members[number]) => (
+  locale === 'en' && member.data.tagline_en ? member.data.tagline_en : member.data.tagline
+);
+
+const getDisplaySkills = (member: typeof members[number]) => (
+  locale === 'en' && member.data.skills_en ? member.data.skills_en : member.data.skills
+);
+
+const sortedMembers = members.sort((a, b) => getDisplayName(a).localeCompare(getDisplayName(b), locale === 'pt-br' ? 'pt-BR' : 'en'));
 ---
 
 <Base title="Members — PKZCorp" description="Meet the PKZCorp team">
@@ -17,10 +31,11 @@ const sortedMembers = members.sort((a, b) => a.data.name.localeCompare(b.data.na
       {sortedMembers.map(member => (
         <MemberCard
           slug={member.data.slug}
-          name={member.data.name}
+          name={getDisplayName(member)}
           avatar={member.data.avatar}
-          tagline={member.data.tagline}
-          skills={member.data.skills}
+          tagline={getDisplayTagline(member)}
+          skills={getDisplaySkills(member)}
+          locale={locale}
         />
       ))}
     </div>

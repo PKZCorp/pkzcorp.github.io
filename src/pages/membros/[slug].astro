@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
@@ -13,7 +14,20 @@ export async function getStaticPaths() {
 }
 
 const { member } = Astro.props;
-const { name, tagline, bio, avatar, skills, links, productions } = member.data;
+const locale: 'en' | 'pt-br' = Astro.currentLocale === 'en' ? 'en' : 'pt-br';
+
+const name = locale === 'en' && member.data.name_en ? member.data.name_en : member.data.name;
+const tagline = locale === 'en' && member.data.tagline_en ? member.data.tagline_en : member.data.tagline;
+const bio = locale === 'en' && member.data.bio_en ? member.data.bio_en : member.data.bio;
+const avatar = member.data.avatar;
+const skills = locale === 'en' && member.data.skills_en ? member.data.skills_en : member.data.skills;
+const links = member.data.links;
+const productions = member.data.productions?.map(prod => ({
+  ...prod,
+  title: locale === 'en' && prod.title_en ? prod.title_en : prod.title,
+  description: locale === 'en' && prod.description_en ? prod.description_en : prod.description,
+}));
+const backLink = getRelativeLocaleUrl(locale, locale === 'pt-br' ? 'membros' : 'members');
 ---
 
 <Base title={`${name} — PKZCorp`} description={tagline}>
@@ -70,7 +84,7 @@ const { name, tagline, bio, avatar, skills, links, productions } = member.data;
     </div>
 
     <div class="back-link">
-      <a href="/membros">← Voltar para membros</a>
+      <a href={backLink}>{locale === 'pt-br' ? '← Voltar para membros' : '← Back to members'}</a>
     </div>
   </div>
 </Base>

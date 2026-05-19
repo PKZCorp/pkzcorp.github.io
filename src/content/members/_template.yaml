@@ -4,9 +4,11 @@
 
 slug: member-slug           # REQUIRED: unique identifier used in URLs. Must be lowercase, no spaces. Example: del, gabriel
 name: Member Name           # REQUIRED: display name. Example: Del, Gabriel Oliveira
+name_en: Member Name        # OPTIONAL: English display name. Use when the name changes in English-facing content.
 avatar: /assets/avatars/    # REQUIRED: path to avatar image (400×400px min). Keep in public/assets/avatars/
 
 tagline: "Short tagline here"  # REQUIRED: one-line bio. Max 60 characters. Example: "dev, poet, creator"
+tagline_en: "Short tagline here" # OPTIONAL: English tagline.
 
 bio: >
   REQUIRED: 2-4 paragraphs of free-form introduction.
@@ -14,8 +16,16 @@ bio: >
   Talk about your interests, background, and what drives your work.
   Use > for multi-line text (YAML feature).
 
+bio_en: >
+  OPTIONAL: English version of the bio.
+
 skills:          # REQUIRED: list of skills/areas of expertise
   - Skill 1      # Examples: Python, JavaScript, Game Design, Music Production, Illustration
+  - Skill 2
+  - Skill 3
+
+skills_en:       # OPTIONAL: English version of the skills list.
+  - Skill 1
   - Skill 2
   - Skill 3
 
@@ -29,9 +39,11 @@ links:           # OPTIONAL: external links to your work/profiles
 
 productions:     # OPTIONAL: your previous work/portfolio items
   - title: "Project or Work Title"
+    title_en: "Project or Work Title"
     type: game   # one of: game, music, poem, art, software, other
     url: https://link-to-your-work.com
     year: 2025
     description: "Optional: brief description"
+    description_en: "Optional: brief description"
 
   # Add more items as needed, separated by dashes
