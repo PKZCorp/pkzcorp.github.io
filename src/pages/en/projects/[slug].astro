@@ -14,7 +14,10 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const { title, category, description, year, members, thumbnail, images, links, status, tags } = project.data;
+const locale = Astro.currentLocale || 'en';
+const title = project.data.title_en ?? project.data.title;
+const description = project.data.description_en ?? project.data.description;
+const { category, year, members, thumbnail, images, links, status, tags } = project.data;
 
 const categoryLabels: Record<string, string> = {
   game: 'Game',

@@ -1,7 +1,13 @@
 slug: interactive-poetry
-title: "Interactive Poetry Platform"
+title: "Plataforma de Poesia Interativa"
+title_en: "Interactive Poetry Platform"
 category: software
 description: >-
+  Uma plataforma web que combina poesia generativa com visuais interativos.
+  Visitantes podem remixar poemas, gerar novos versos e criar interpretações visuais.
+  Criada como um experimento que une linguagem, código e design visual.
+
+description_en: >-
   A web platform combining generative poetry with interactive visuals.
   Visitors can remix poems, generate new verses, and create visual interpretations.
   Built as an experiment in merging language, code, and visual design.

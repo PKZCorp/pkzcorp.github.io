@@ -3,10 +3,15 @@
 
 slug: project-slug          # REQUIRED: unique identifier used in URLs. Must be lowercase, no spaces.
 title: "Project Title"     # REQUIRED: display name.
+title_en: "Project Title"   # OPTIONAL: English display name.
 category: software          # REQUIRED: one of: game, music, software, poem, art, collab, event, other
 
 description: >-
-  REQUIRED: Short project summary.
+  RESUMO CURTO EM PORTUGUÊS BRASILEIRO.
+  Descreva o projeto, o que ele faz ou por que existe.
+
+description_en: >-
+  OPTIONAL: short English summary.
   Describe what the project is, what it does, or why it exists.
 
 status: wip                 # REQUIRED: one of: planned, released, wip, jam, archived

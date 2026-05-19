@@ -1,5 +1,6 @@
 ---
 
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import '../styles/components/project-card.scss';
 
 interface Props {
@@ -10,34 +11,50 @@ interface Props {
   thumbnail: string;
   year: number;
   status: 'planned' | 'released' | 'wip' | 'jam' | 'archived';
+  locale: 'en' | 'pt-br';
 }
 
-const { slug, title, category, description, thumbnail, year, status } = Astro.props;
+const { slug, title, category, description, thumbnail, year, status, locale } = Astro.props;
 
-const statusLabels: Record<string, string> = {
-  planned: 'Planned',
-  released: 'Released',
-  wip: 'WIP',
-  jam: 'Jam',
-  archived: 'Archived',
+const projectUrl = locale === 'pt-br'
+  ? getRelativeLocaleUrl('pt-br', `projetos/${slug}`)
+  : getRelativeLocaleUrl('en', `projects/${slug}`);
+
+const categoryLabels: Record<'en' | 'pt-br', Record<string, string>> = {
+  en: {
+    game: 'Game',
+    music: 'Music',
+    software: 'Software',
+    poem: 'Poem',
+    art: 'Art',
+    collab: 'Collaboration',
+    other: 'Other',
+  },
+  'pt-br': {
+    game: 'Jogos',
+    music: 'Música',
+    software: 'Software',
+    poem: 'Poesia',
+    art: 'Arte',
+    collab: 'Colaboração',
+    other: 'Outros',
+  },
 };
 
-const categoryLabels: Record<string, string> = {
-  game: 'Game',
-  music: 'Music',
-  software: 'Software',
-  poem: 'Poem',
-  art: 'Art',
-  collab: 'Collaboration',
-  other: 'Other',
+const statusLabels: Record<string, string> = {
+  planned: locale === 'pt-br' ? 'Planejado' : 'Planned',
+  released: locale === 'pt-br' ? 'Lançado' : 'Released',
+  wip: locale === 'pt-br' ? 'Em Desenvolvimento' : 'WIP',
+  jam: locale === 'pt-br' ? 'Game Jam' : 'Jam',
+  archived: locale === 'pt-br' ? 'Arquivado' : 'Archived',
 };
 ---
 
-<a href={`/projetos/${slug}`} class="project-card" data-category={category} data-status={status}>
+<a href={projectUrl} class="project-card" data-category={category} data-status={status}>
   <div class="project-thumbnail">
     <img src={thumbnail} alt={title} />
     <div class="project-badges">
-      <span class="badge category">{categoryLabels[category]}</span>
+      <span class="badge category">{categoryLabels[locale][category]}</span>
       <span class={`badge status ${status}`}>{statusLabels[status]}</span>
     </div>
   </div>

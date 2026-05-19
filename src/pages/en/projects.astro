@@ -6,6 +6,7 @@ import '../../styles/pages/projects.scss';
 import { initProjectSearch } from '../../scripts/projectSearch';
 import { initFilterDropdowns } from '../../scripts/filterDropdowns';
 
+const locale: 'en' | 'pt-br' = Astro.currentLocale === 'en' ? 'en' : 'pt-br';
 const projects = await getCollection('projects');
 
 const categoryFilter = Astro.url.searchParams.get('category');
@@ -79,12 +80,13 @@ const statusLabels: Record<string, string> = {
         {sortedProjects.map(project => (
           <ProjectCard
             slug={project.data.slug}
-            title={project.data.title}
+            title={project.data.title_en ?? project.data.title}
             category={project.data.category}
-            description={project.data.description}
+            description={project.data.description_en ?? project.data.description}
             thumbnail={project.data.thumbnail}
             year={project.data.year}
             status={project.data.status}
+            locale={locale}
           />
         ))}
       </div>

@@ -29,8 +29,10 @@ const projectsCollection = defineCollection({
   schema: z.object({
     slug: z.string(),
     title: z.string(),
+    title_en: z.string().optional(),
     category: z.enum(['game', 'music', 'software', 'poem', 'art', 'collab', 'event', 'other']),
     description: z.string(),
+    description_en: z.string().optional(),
     tags: z.array(z.string()).optional(),
     status: z.enum(['planned', 'released', 'wip', 'jam', 'archived']),
     year: z.number(),
