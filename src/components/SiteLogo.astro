@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
 const size = Astro.props.size || 40;
 ---
 
 <a class="site-logo" href="/" aria-label="PKZCorp homepage">
-  <img src="/src/assets/logo/logo-transparent-no-border.svg" alt="PKZCorp logo" width={size} height={size} />
+  <Image src="/src/assets/logo/logo-transparent-no-border.svg" alt="PKZCorp logo" width={size} height={size} />
   <span class="site-title">PKZCorp</span>
 </a>
