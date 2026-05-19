@@ -17,7 +17,7 @@ year: 2024
 members:
   - markin
   - gab
-thumbnail: https://api.dicebear.com/9.x/shapes/svg?seed=sound
+thumbnail: /src/assets/default_banner.jpg
 
 tags:
   - installation

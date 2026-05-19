@@ -10,7 +10,7 @@
   background: $color-surface;
   margin-bottom: $space-2xl;
 
-  img {
+  .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -179,7 +179,7 @@
     grid-template-columns: repeat(auto-fill, minmax($size-grid-min-md, 1fr));
     gap: $space-md;
 
-    img {
+    .gallery-image {
       width: 100%;
       border-radius: $radius-sm;
       object-fit: cover;

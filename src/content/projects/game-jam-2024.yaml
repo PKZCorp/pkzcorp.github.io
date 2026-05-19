@@ -17,7 +17,7 @@ year: 2024
 members:
   - del
   - gab
-thumbnail: https://api.dicebear.com/9.x/shapes/svg?seed=gamejam
+thumbnail: /src/assets/default_banner.jpg
 
 tags:
   - game

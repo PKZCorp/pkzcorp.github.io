@@ -16,7 +16,7 @@ status: planned
 year: 2027
 members:
   - Pedroksz
-thumbnail: https://api.dicebear.com/9.x/shapes/svg?seed=pkzawards
+thumbnail: /src/assets/default_banner.jpg
 
 tags:
   - awards
