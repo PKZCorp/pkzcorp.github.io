@@ -9,12 +9,13 @@ interface Props {
   description: string;
   thumbnail: string;
   year: number;
-  status: 'released' | 'wip' | 'jam' | 'archived';
+  status: 'planned' | 'released' | 'wip' | 'jam' | 'archived';
 }
 
 const { slug, title, category, description, thumbnail, year, status } = Astro.props;
 
 const statusLabels: Record<string, string> = {
+  planned: 'Planned',
   released: 'Released',
   wip: 'WIP',
   jam: 'Jam',
