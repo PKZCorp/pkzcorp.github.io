@@ -1,10 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 
+let logo = '/src/assets/logo/logo-transparent-no-border.svg';
+
+const imagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/logo/*.{jpeg,jpg,png,gif,svg}');
+if (!imagesGlob[logo]) throw new Error(`"${logo}" does not exist in glob: "src/assets/logo/*.{jpeg,jpg,png,gif,svg}"`);
+
 const size = Astro.props.size || 40;
 ---
 
 <a class="site-logo" href="/" aria-label="PKZCorp homepage">
-  <Image src="/src/assets/logo/logo-transparent-no-border.svg" alt="PKZCorp logo" width={size} height={size} />
+  <Image src={imagesGlob[logo]()} alt="PKZCorp logo" width={size} height={size} />
   <span class="site-title">PKZCorp</span>
 </a>
