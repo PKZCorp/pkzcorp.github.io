@@ -15,7 +15,8 @@
     "@lucide/astro": "^1.16.0",
     "astro": "^6.3.3",
     "node-gyp": "^12.3.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "simple-icons": "^16.20.0"
   },
   "devDependencies": {
     "sass-embedded": "^1.99.0"

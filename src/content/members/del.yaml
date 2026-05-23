@@ -2,46 +2,54 @@ slug: del
 name: Del Nailo
 name_en: Del Nailo
 avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=danilo
-tagline: "dev, poeta, criador de mundos"
-tagline_en: "developer, poet, world-builder"
+tagline: "dev, criador de mundos, artista"
+tagline_en: "dev, worldbuilder, artist"
 bio: >
-  Desenvolvedor full-stack com paixão por arte generativa e design narrativo.
-  Escreve código e poesia. Cria jogos, música e histórias interativas.
-  Acredita que software pode ser bonito.
+  Eu jogo, assisto, desenho, pinto, escrevo e faço modelagem 3D. Programo sites,
+  apps, jogos, simulações e experimentos de IA. Também toco música,
+  crio narrativas interativas e trabalho com design visual e sonoro.
 
 bio_en: >
-  Full-stack developer with a passion for generative art and narrative design.
-  Writes code and poetry. Makes games, music, and interactive stories.
-  Believes software can be beautiful.
+  I play games, watch films, draw, paint, write, and create 3D models. I
+  develop websites, apps, games, simulations and AI experiments. I also play
+  music, make interactive narratives and work with visual and sound design.
 
 skills:
   - Python
   - JavaScript / TypeScript
   - p5.js
   - Game Design
-  - Poesia
+  - Modelagem 3D
+  - Produção Musical
+  - Design Narrativo
+  - Arte
+  - Design Visual
 
 skills_en:
   - Python
   - JavaScript / TypeScript
   - p5.js
   - Game Design
-  - Poetry
+  - 3D Modeling
+  - Music Production
+  - Narrative Design
+  - Art
+  - Visual Design
 
 links:
+  instagram: https://instagram.com/delnailo
+  pinterest: https://br.pinterest.com/D4N1L0200/_profile/
+  discord: https://discord.com/users/435412609106444290
   github: https://github.com/dddelnailo
-  itch: https://del.itch.io
+  steam: https://steamcommunity.com/profiles/76561199035790439
+  spotify: https://open.spotify.com/user/z07u0amuulytm2mfh31n606h1
+  reddit: https://www.reddit.com/user/D4N1L0200/
 
 productions:
-  - title: "The Garden Protocol"
-    title_en: "The Garden Protocol"
-    description: "Joguinho bom"
-    description_en: "Good game"
-    url: https://example.com
-    type: game
-    year: 2024
-  - title: "Echo Chambers"
-    title_en: "Echo Chambers"
-    url: https://example.com
-    type: music
-    year: 2023
+  - title: "Site Institucional PKZCorp"
+    title_en: "PKZCorp Institutional Website"
+    description: "Desenvolvimento do site institucional da PKZCorp, incluindo design e implementação."
+    description_en: "Development of PKZCorp's institutional website, including design and implementation."
+    url: https://pkzcorp.github.io
+    type: software
+    year: 2026

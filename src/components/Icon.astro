@@ -1,5 +1,6 @@
 ---
 import { CodeXml, ExternalLink, House, Info, Mail, Sparkles, SquareKanban, Users } from '@lucide/astro';
+import { siDiscord, siGithub, siInstagram, siPinterest, siReddit, siSpotify, siSteam } from 'simple-icons';
 
 const ICONS: Record<string, any> = {
 	home: House,
@@ -11,7 +12,13 @@ const ICONS: Record<string, any> = {
 	repo: CodeXml,
 	external: ExternalLink,
 	// Social media: use external icon for unknown services
-	github: ExternalLink,
+	github: siGithub,
+	instagram: siInstagram,
+	pinterest: siPinterest,
+	discord: siDiscord,
+	steam: siSteam,
+	spotify: siSpotify,
+	reddit: siReddit,
 	itch: ExternalLink,
 	soundcloud: ExternalLink,
 };
@@ -26,7 +33,28 @@ interface Props {
 
 const { name = 'home', size = 16, class: cls = '' } = Astro.props as Props;
 const IconComponent = ICONS[name] || ExternalLink;
+const isSimpleIcon = name in ICONS && typeof IconComponent === 'object' && 'path' in IconComponent;
 ---
 
-<IconComponent size={size} class={cls} aria-hidden="true" />
+{
+	IconComponent === ExternalLink ? (
+		<IconComponent size={size} class={cls} aria-hidden="true" />
+	) : isSimpleIcon ? (
+		<svg
+			viewBox="0 0 24 24"
+			width={size}
+			height={size}
+			class={cls}
+			aria-hidden="true"
+			role="img"
+			fill={`#${IconComponent.hex}`}
+			focusable="false"
+		>
+			<title>{IconComponent.title}</title>
+			<path d={IconComponent.path} />
+		</svg>
+	) : (
+		<IconComponent size={size} class={cls} aria-hidden="true" />
+	)
+}
 
