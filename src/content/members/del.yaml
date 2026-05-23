@@ -35,6 +35,8 @@ links:
 productions:
   - title: "The Garden Protocol"
     title_en: "The Garden Protocol"
+    description: "Joguinho bom"
+    description_en: "Good game"
     url: https://example.com
     type: game
     year: 2024

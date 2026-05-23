@@ -76,6 +76,9 @@ const backLink = getRelativeLocaleUrl(locale, locale === 'pt-br' ? 'membros' : '
                   <strong>{prod.title}</strong>
                   <span class="production-meta">{prod.type} • {prod.year}</span>
                 </a>
+                {prod.description && (
+                  <p class="production-description">{prod.description}</p>
+                )}
               </div>
             ))}
           </div>
