@@ -1,0 +1,33 @@
+slug: geraldo
+name: Geraldo Gabriel
+name_en: Geraldo Gabriel
+avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=geraldo
+tagline: "fotógrafo, pesquisador visual"
+tagline_en: "photographer, visual researcher"
+bio: >
+  Fotógrafo e pesquisador interessado em documentação urbana e práticas curatoriais.
+  Meu trabalho atravessa fotografia, instalação e escrita crítica.
+
+bio_en: >
+  Photographer and researcher interested in urban documentation and curatorial practices.
+  My work spans photography, installation and critical writing.
+
+skills:
+  - Fotografia
+  - Pesquisa Visual
+  - Curadoria
+
+skills_en:
+  - Photography
+  - Visual Research
+  - Curating
+
+links:
+  website: https://example.com/geraldo
+
+productions:
+  - title: "Ensaios Urbanos"
+    title_en: "Urban Essays"
+    type: art
+    url: https://example.com/ensaios-urbanos
+    year: 2023

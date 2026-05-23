@@ -1,0 +1,32 @@
+slug: samuel
+name: Samuel
+name_en: Samuel
+avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=samuel
+tagline: "músico, roteirista, desenvolvedor de jogos"
+tagline_en: "musician, writer, game maker"
+aliases:
+  - SMK
+
+bio: >
+  Músico e roteirista que trabalha com composição, narrativa e jogos.
+  Interessado em experimentação sonora e storytelling interativo.
+
+bio_en: >
+  Musician and writer working with composition, narrative and games.
+  Interested in sound experimentation and interactive storytelling.
+
+skills:
+  - Composição Musical
+  - Roteiro
+  - Design de Jogos
+
+skills_en:
+  - Music Composition
+  - Screenwriting
+  - Game Design
+
+links:
+  instagram: ""
+  bandlab: ""
+
+productions: []

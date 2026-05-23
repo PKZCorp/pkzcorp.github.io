@@ -1,7 +1,7 @@
 slug: del
 name: Del Nailo
 name_en: Del Nailo
-avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=danilo
+avatar: /src/assets/members/del.jpeg
 tagline: "dev, criador de mundos, artista"
 tagline_en: "dev, worldbuilder, artist"
 bio: >
@@ -53,3 +53,13 @@ productions:
     url: https://pkzcorp.github.io
     type: software
     year: 2026
+  - title: "Desafios de Programação"
+    title_en: "Programming Challenges"
+    description: "Coleção de desafios de programação."
+    description_en: "Collection of programming challenges."
+    url: https://github.com/DDDelNailo/Challenges
+    type: software
+    year: 2026
+
+
+

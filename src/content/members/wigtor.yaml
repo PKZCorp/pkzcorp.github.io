@@ -1,0 +1,35 @@
+slug: wigtor
+name: Wigtor
+name_en: Wigtor
+avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=wigtor
+tagline: "programador e game designer"
+tagline_en: "programmer and game designer"
+bio: >
+  Desenvolvedor com foco em jogos independentes e ferramentas interativas.
+  Gosto de prototipar mecânicas experimentais e integrar som e código.
+
+bio_en: >
+  Developer focused on indie games and interactive tools.
+  I prototype experimental mechanics and integrate sound with code.
+
+skills:
+  - Unity
+  - C#
+  - Game Design
+  - Audio Programming
+
+skills_en:
+  - Unity
+  - C#
+  - Game Design
+  - Audio Programming
+
+links:
+  github: https://github.com/wigtor
+
+productions:
+  - title: "Prototype: Resonant Maze"
+    title_en: "Prototype: Resonant Maze"
+    type: game
+    url: https://wigtor.itch.io/resonant-maze
+    year: 2024

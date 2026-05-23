@@ -1,0 +1,33 @@
+slug: pedroksz
+name: Pedroksz
+name_en: Pedroksz
+avatar: /src/assets/members/pedroksz.png
+tagline: "fundador e produtor"
+tagline_en: "founder and producer"
+bio: >
+  Fundador da PKZCorp, produtor cultural e mentor de projetos criativos.
+  Coordeno iniciativas, parcerias e a curadoria de eventos e publicações.
+
+bio_en: >
+  Founder of PKZCorp, cultural producer and mentor for creative projects.
+  I coordinate initiatives, partnerships and curate events and publications.
+
+skills:
+  - Produção Cultural
+  - Curadoria
+  - Gestão de Projetos
+
+skills_en:
+  - Cultural Production
+  - Curation
+  - Project Management
+
+links:
+  instagram: https://instagram.com/pedroksz
+
+productions:
+  - title: "PKZCorp: Fundação e Curadoria"
+    title_en: "PKZCorp: Founding & Curation"
+    type: other
+    url: https://pkzcorp.github.io
+    year: 2022

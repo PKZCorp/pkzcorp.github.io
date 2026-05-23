@@ -1,7 +1,7 @@
-slug: markin
-name: Markin
-name_en: Markin
-avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=markin
+slug: markinz
+name: Markinz
+name_en: Markinz
+avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=markinz
 tagline: "músico, produtor, designer de som"
 tagline_en: "musician, producer, sound designer"
 bio: >
@@ -20,6 +20,8 @@ skills:
   - Síntese
   - Max/MSP
   - Pure Data
+  - Trilhas Sonoras
+  - Arte 2D (Pixel Art)
 
 skills_en:
   - Electronic Music Production
@@ -27,11 +29,15 @@ skills_en:
   - Synthesis
   - Max/MSP
   - Pure Data
+  - Soundtrack Composition
+  - 2D Pixel Art
 
 links:
-  github: https://github.com/markin
-  soundcloud: https://soundcloud.com/markin
-  bandcamp: https://markin.bandcamp.com
+  github: https://github.com/markinz
+  soundcloud: https://soundcloud.com/markinz
+  bandcamp: https://markinz.bandcamp.com
+  instagram: https://instagram.com/markinz
+  twitter: https://twitter.com/markinz
 
 productions:
   - title: "Jornadas Algorítmicas"

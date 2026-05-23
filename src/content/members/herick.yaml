@@ -1,0 +1,30 @@
+slug: herick
+name: Herick
+name_en: Herick
+avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=herick
+tagline: "ilustrador e animador"
+tagline_en: "illustrator and animator"
+bio: >
+  Ilustrador e animador focado em narrativas visuais e personagens.
+  Trabalho com ilustração digital, animação quadro-a-quadro e direção de arte.
+
+bio_en: >
+  Illustrator and animator focused on visual storytelling and characters.
+  I work with digital illustration, frame-by-frame animation and art direction.
+
+skills:
+  - Ilustração Digital
+  - Animação 2D
+  - Direção de Arte
+  - Character Design
+
+skills_en:
+  - Digital Illustration
+  - 2D Animation
+  - Art Direction
+  - Character Design
+
+links:
+  website: https://example.com/herick
+
+productions: []
