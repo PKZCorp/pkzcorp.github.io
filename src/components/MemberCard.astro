@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import '../styles/components/member-card.scss';
 
@@ -20,7 +21,8 @@ const memberUrl = locale === 'pt-br'
 
 <a href={memberUrl} class="member-card">
   <div class="member-avatar">
-    <img src={avatar} alt={name} />
+    <!-- <img src={avatar} alt={name} /> -->
+    <Image src={avatar} alt={name} width={100} height={100} class="avatar-image" />
   </div>
   <div class="member-info">
     <h3 class="member-name">{name}</h3>
