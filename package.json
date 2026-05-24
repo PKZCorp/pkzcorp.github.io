@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@lucide/astro": "^1.16.0",
+    "@supabase/supabase-js": "^2.106.1",
     "astro": "^6.3.3",
     "node-gyp": "^12.3.0",
     "sharp": "^0.34.5",

@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/pages/admin.scss';
+---
+
+<Base title="Admin Dashboard — PKZCorp" description="PKZCorp member draft editor">
+  <div class="container admin-page">
+    <section class="admin-card">
+      <div class="admin-header-row">
+        <h1>Draft Editor</h1>
+        <button id="admin-signout" type="button" class="admin-btn admin-btn-muted">Sign out</button>
+      </div>
+
+      <p class="admin-copy">Signed in as <strong id="admin-user-email">loading...</strong></p>
+
+      <div class="admin-form-grid">
+        <label for="draft-slug">Slug</label>
+        <input id="draft-slug" type="text" placeholder="del" required />
+
+        <label for="draft-name">Name</label>
+        <input id="draft-name" type="text" placeholder="Del" required />
+
+        <label for="draft-tagline">Tagline</label>
+        <input id="draft-tagline" type="text" placeholder="dev, poet, builder" required />
+
+        <label for="draft-skills">Skills (comma separated)</label>
+        <input id="draft-skills" type="text" placeholder="JavaScript, Pygame, Poetry" />
+
+        <label for="draft-bio">Bio</label>
+        <textarea id="draft-bio" rows="7" placeholder="Write a short bio..."></textarea>
+      </div>
+
+      <div class="admin-actions">
+        <button id="admin-save-draft" type="button" class="admin-btn">Save draft</button>
+      </div>
+
+      <p id="admin-status" class="admin-feedback" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <script type="module">
+    import '../../scripts/admin/dashboard';
+  </script>
+</Base>

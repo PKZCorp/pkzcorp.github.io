@@ -1,0 +1,89 @@
+@use '../_variables' as *;
+
+.admin-page {
+  padding-top: $space-xl;
+}
+
+.admin-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-xl;
+}
+
+.admin-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-md;
+}
+
+.admin-copy {
+  color: $color-text-secondary;
+  margin: $space-md 0 $space-lg;
+}
+
+.admin-form,
+.admin-form-grid {
+  display: grid;
+  gap: $space-sm;
+}
+
+.admin-form-grid {
+  grid-template-columns: 1fr;
+}
+
+.admin-form label,
+.admin-form-grid label {
+  font-size: $text-body-small;
+  color: $color-text-secondary;
+}
+
+.admin-form input,
+.admin-form-grid input,
+.admin-form-grid textarea {
+  background: $color-bg;
+  color: $color-text-primary;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+}
+
+.admin-form-grid textarea {
+  resize: vertical;
+}
+
+.admin-btn {
+  margin-top: $space-sm;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+  background: $color-accent;
+  color: $color-brand-white;
+  cursor: pointer;
+}
+
+.admin-btn-muted {
+  background: transparent;
+  color: $color-text-primary;
+  border-color: $color-border;
+  margin-top: 0;
+}
+
+.admin-actions {
+  margin-top: $space-lg;
+}
+
+.admin-feedback {
+  margin-top: $space-md;
+  font-size: $text-body-small;
+  color: $color-text-secondary;
+}
+
+.admin-feedback[data-state='error'] {
+  color: $color-error;
+}
+
+.admin-feedback[data-state='ok'] {
+  color: $color-success;
+}
