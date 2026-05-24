@@ -1,7 +1,7 @@
 slug: samuel
 name: Samuel
 name_en: Samuel
-avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=samuel
+avatar: /src/assets/members/default.jpg
 tagline: "músico, roteirista, desenvolvedor de jogos"
 tagline_en: "musician, writer, game maker"
 aliases:

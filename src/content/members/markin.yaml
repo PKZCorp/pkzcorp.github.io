@@ -1,7 +1,7 @@
 slug: markinz
 name: Markinz
 name_en: Markinz
-avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=markinz
+avatar: /src/assets/members/default.jpg
 tagline: "músico, produtor, designer de som"
 tagline_en: "musician, producer, sound designer"
 bio: >

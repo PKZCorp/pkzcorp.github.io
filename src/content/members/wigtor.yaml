@@ -1,7 +1,7 @@
 slug: wigtor
 name: Wigtor
 name_en: Wigtor
-avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=wigtor
+avatar: /src/assets/members/default.jpg
 tagline: "programador e game designer"
 tagline_en: "programmer and game designer"
 bio: >

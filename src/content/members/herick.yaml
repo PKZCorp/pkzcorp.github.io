@@ -1,7 +1,7 @@
 slug: herick
 name: Herick
 name_en: Herick
-avatar: https://api.dicebear.com/9.x/avataaars/svg?seed=herick
+avatar: /src/assets/members/default.jpg
 tagline: "ilustrador e animador"
 tagline_en: "illustrator and animator"
 bio: >

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
@@ -28,12 +29,15 @@ const productions = member.data.productions?.map(prod => ({
   description: locale === 'en' && prod.description_en ? prod.description_en : prod.description,
 }));
 const backLink = getRelativeLocaleUrl(locale, locale === 'pt-br' ? 'membros' : 'members');
+
+const imagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/members/*.{jpeg,jpg,png,gif,svg}');
+if (!imagesGlob[avatar]) throw new Error(`"${avatar}" does not exist in glob: "src/assets/members/*.{jpeg,jpg,png,gif,svg}"`);
 ---
 
 <Base title={`${name} — PKZCorp`} description={tagline}>
   <div class="container">
     <div class="member-hero">
-      <img src={avatar} alt={name} class="hero-avatar" />
+      <Image src={imagesGlob[avatar]()} alt={name} class="hero-avatar" inferSize />
       <div class="hero-info">
         <h1>{name}</h1>
         <p class="tagline">{tagline}</p>
