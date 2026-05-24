@@ -14,8 +14,8 @@ interface Props {
 
 const { slug, name, avatar, tagline, skills, locale } = Astro.props;
 
-const imagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
-if (!imagesGlob[avatar]) throw new Error(`"${avatar}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+const imagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/members/*.{jpeg,jpg,png,gif}');
+if (!imagesGlob[avatar]) throw new Error(`"${avatar}" does not exist in glob: "src/assets/members/*.{jpeg,jpg,png,gif}"`);
 
 const memberUrl = locale === 'pt-br'
   ? getRelativeLocaleUrl('pt-br', `membros/${slug}`)
