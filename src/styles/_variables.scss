@@ -6,12 +6,12 @@
 /* Brand colors */
 $color-brand-black: #0a0a0a;
 $color-brand-white: #ffffff;
-/* Petal colors - to be updated by designer */
-$color-brand-orange: #ff8c42;
-$color-brand-red: #e74c3c;
-$color-brand-green: #2ecc71;
-$color-brand-purple: #9b59b6;
-$color-brand-blue: #3498db;
+
+$color-brand-orange: #ff5900;
+$color-brand-red: #ff0300;
+$color-brand-green: #40CD00;
+$color-brand-purple: #7700ff;
+$color-brand-blue: #3232ff;
 
 /* Semantic colors (dark mode) */
 $color-bg: #0a0a0a;
@@ -22,8 +22,8 @@ $color-text-secondary: #b0b0b0;
 $color-text-muted: #707070;
 $color-text-dark: #333333;
 $color-border: #333333;
-$color-accent: $color-brand-orange;
-$color-accent-hover: #ffb366;
+$color-accent: $color-brand-purple;
+$color-accent-hover: darken($color-brand-purple, 15%);
 $color-success: #34d399;
 $color-warning: #fbbf24;
 $color-error: #f87171;
