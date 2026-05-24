@@ -1,6 +1,7 @@
 /* src/styles/_variables.scss */
 /* SCSS variables - compile-time values for consistency */
 @use 'sass:math';
+@use 'sass:color';
 
 /* ===== Color System ===== */
 /* Brand colors */
@@ -23,7 +24,7 @@ $color-text-muted: #707070;
 $color-text-dark: #333333;
 $color-border: #333333;
 $color-accent: $color-brand-purple;
-$color-accent-hover: darken($color-brand-purple, 15%);
+$color-accent-hover: color.adjust($color-brand-purple, $lightness: -15%);
 $color-success: #34d399;
 $color-warning: #fbbf24;
 $color-error: #f87171;

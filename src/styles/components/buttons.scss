@@ -41,7 +41,7 @@
 
   &:hover:not(:disabled) {
     background-color: $color-accent-hover;
-    color: $color-text-dark;
+    color: $color-text-primary; // white text
     border-color: $color-accent-hover;
   }
 }
