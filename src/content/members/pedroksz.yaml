@@ -2,32 +2,46 @@ slug: pedroksz
 name: Pedroksz
 name_en: Pedroksz
 avatar: /src/assets/members/pedroksz.png
-tagline: "fundador e produtor"
-tagline_en: "founder and producer"
+tagline: "fundador, produtor e artista"
+tagline_en: "founder, producer and artist"
 bio: >
-  Fundador da PKZCorp, produtor cultural e mentor de projetos criativos.
-  Coordeno iniciativas, parcerias e a curadoria de eventos e publicações.
+  Fundador da PKZCorp, produtor e artista. Trabalho na área de produção visual e musical,
+  na área de artes e desenhos, além da administração da empresa como um todo, desde a 
+  divulgação até a gestão de projetos.
 
 bio_en: >
-  Founder of PKZCorp, cultural producer and mentor for creative projects.
-  I coordinate initiatives, partnerships and curate events and publications.
+  Founder of PKZCorp, producer and artist. I work in the area of visual and musical production,
+  in the area of arts and drawings, as well as the administration of the company as a whole, 
+  from dissemination to project management.
 
 skills:
-  - Produção Cultural
-  - Curadoria
-  - Gestão de Projetos
+  - AutoCAD
+  - Produção Musical
+  - Arte
+  - Design Visual
+  - Administração
 
 skills_en:
-  - Cultural Production
-  - Curation
-  - Project Management
-
+  - AutoCAD
+  - Music Production
+  - Art
+  - Visual Design
+  - Administration
+  
 links:
+  discord: https://discord.com/users/406131419958476814
   instagram: https://instagram.com/pedroksz
+  roblox: https://roblox.com/users/1494181169/profile
+  soundcloud: https://on.soundcloud.com/UysgQhFyrrcS6lfKxI
+  spotify: https://open.spotify.com/user/ycu1pcsoisel3a7edicxsyske
+  steam: https://steamcommunity.com/profiles/76561199068214163
+  tiktok: https://www.tiktok.com/@pedrokszoficial
+  twitter: https://x.com/PedrokszOficial
+  youtube: https://www.youtube.com/@Pedroksz
 
 productions:
   - title: "PKZCorp: Fundação e Curadoria"
     title_en: "PKZCorp: Founding & Curation"
     type: other
     url: https://pkzcorp.github.io
-    year: 2022
+    year: 2024

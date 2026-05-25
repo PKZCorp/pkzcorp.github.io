@@ -1,6 +1,6 @@
 ---
 import { CodeXml, ExternalLink, House, Info, Mail, Sparkles, SquareKanban, Users } from '@lucide/astro';
-import { siDiscord, siGithub, siInstagram, siPinterest, siReddit, siSpotify, siSteam } from 'simple-icons';
+import { siDiscord, siGithub, siInstagram, siPinterest, siReddit, siRoblox, siSoundcloud, siSpotify, siSteam, siTiktok, siX, siYoutube } from 'simple-icons';
 
 const ICONS: Record<string, any> = {
 	home: House,
@@ -19,8 +19,13 @@ const ICONS: Record<string, any> = {
 	steam: siSteam,
 	spotify: siSpotify,
 	reddit: siReddit,
+	roblox: siRoblox,
 	itch: ExternalLink,
-	soundcloud: ExternalLink,
+	soundcloud: siSoundcloud,
+	tiktok: siTiktok,
+	twitter: siX,
+	x: siX,
+	youtube: siYoutube,
 };
 
 type IconName = keyof typeof ICONS;
