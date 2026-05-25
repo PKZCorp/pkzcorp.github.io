@@ -3,13 +3,13 @@
 // Main layout for all pages - imports global and layout styles
 // Supports i18n with proper locale detection
 
-import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getLangFromUrl, useTranslations, getNavLinks, getIconForNavItem } from '../i18n/utils';
 import '../styles/global.scss';
 import '../styles/layout.scss';
 import SiteLogo from '../components/SiteLogo.astro';
 import Icon from '../components/Icon.astro';
 import LanguagePicker from '../components/LanguagePicker.astro';
+import ogImage from '../assets/logo/logo-default.png';
 
 interface Props {
   title?: string;
@@ -34,6 +34,9 @@ const navLinks = getNavLinks(lang);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta property="og:title" content="PKZCorp" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage.src} />
     <title>{title}</title>
     
     <!-- Favicons and Web Manifest -->
