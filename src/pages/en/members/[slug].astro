@@ -41,16 +41,16 @@ if (!imagesGlob[avatar]) throw new Error(`"${avatar}" does not exist in glob: "s
       <div class="hero-info">
         <h1>{name}</h1>
         <p class="tagline">{tagline}</p>
-        {links && (
-          <div class="member-links">
-            {Object.entries(links).map(([key, url]) => (
-              <a href={url} target="_blank" rel="noopener noreferrer" aria-label={key}>
-                <Icon name={key} size={20} />
-              </a>
-            ))}
-          </div>
-        )}
       </div>
+      {links && (
+        <div class="member-links">
+          {Object.entries(links).map(([key, url]) => (
+            <a href={url} target="_blank" rel="noopener noreferrer" aria-label={key}>
+              <Icon name={key} size={20} />
+            </a>
+          ))}
+        </div>
+      )}
     </div>
 
     <div class="member-content">

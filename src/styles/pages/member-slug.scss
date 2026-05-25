@@ -4,17 +4,29 @@
 .member-hero {
   display: grid;
   grid-template-columns: $size-avatar-lg 1fr;
+  grid-template-areas:
+    'avatar info'
+    'avatar links';
   gap: $space-lg;
   margin-bottom: $space-2xl;
   align-items: start;
+  justify-items: start;
 
   @media (max-width: $breakpoint-tablet) {
     grid-template-columns: $size-avatar-md 1fr;
-    gap: $space-lg;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: $size-avatar-md 1fr;
+    grid-template-areas:
+      'avatar info'
+      'links links';
+    gap: $space-md;
   }
 }
 
 .hero-avatar {
+  grid-area: avatar;
   width: $size-avatar-lg;
   height: $size-avatar-lg;
   border-radius: $radius-md;
@@ -27,6 +39,7 @@
 }
 
 .hero-info {
+  grid-area: info;
   display: flex;
   flex-direction: column;
   gap: $space-md;
@@ -45,8 +58,16 @@
 }
 
 .member-links {
+  grid-area: links;
   display: flex;
+  flex-wrap: wrap;
   gap: $space-md;
+  align-self: center;
+
+  @media (max-width: $breakpoint-mobile) {
+    justify-content: flex-start;
+    width: 100%;
+  }
 
   a {
     display: inline-flex;
