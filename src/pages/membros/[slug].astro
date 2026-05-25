@@ -75,15 +75,13 @@ if (!imagesGlob[avatar]) throw new Error(`"${avatar}" does not exist in glob: "s
           <h2>Produções</h2>
           <div class="productions-list">
             {productions.map(prod => (
-              <div class="production-item">
-                <a href={prod.url} target="_blank" rel="noopener noreferrer" class="production-link">
+                <a href={prod.url} target="_blank" rel="noopener noreferrer" class="production-item production-link">
                   <strong>{prod.title}</strong>
                   <span class="production-meta">{prod.type} • {prod.year}</span>
+                  {prod.description && (
+                    <p class="production-description">{prod.description}</p>
+                  )}
                 </a>
-                {prod.description && (
-                  <p class="production-description">{prod.description}</p>
-                )}
-              </div>
             ))}
           </div>
         </section>

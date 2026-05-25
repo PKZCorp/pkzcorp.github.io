@@ -1,0 +1,50 @@
+slug: smk
+name: SMK
+name_en: SMK
+avatar: /src/assets/members/smk.jpg
+tagline: "músico, roteirista, desenvolvedor de jogos"
+tagline_en: "musician, writer, game maker"
+
+bio: >
+  Músico e roteirista que trabalha com composição, narrativa e jogos.
+  Interessado em experimentação sonora e storytelling interativo.
+  Desenvolvedor de jogos 2D e cantor.
+
+bio_en: >
+  Musician and writer working with composition, narrative, and games.
+  Interested in sound experimentation and interactive storytelling.
+  2D game developer and singer.
+
+skills:
+  - Python
+  - JavaScript / TypeScript
+  - Game Design
+  - Produção Musical
+  - Arte
+  - Composição
+  - Roteiro
+  - Beatmaker
+
+skills_en:
+  - Python
+  - JavaScript / TypeScript
+  - Game Design
+  - Music Production
+  - Art
+  - Composition
+  - Writing
+  - Beatmaker
+
+links:
+  instagram: "https://instagram.com/samuelandrey07"
+  bandlab: "https://www.bandlab.com/smk_7"
+
+productions:
+  - title: "Stealing Keys"
+    title_en: "Stealing Keys"
+    description: "Faixa musical original, disponível na plataforma BandLab."
+    description_en: "Original music track, available on the BandLab platform."
+    url: https://www.bandlab.com/track/d3a4f70b-beac-43f8-bdaf-51757946ba85?revId=4c8a5e71-6577-4d21-af80-8e31ca08280d
+    type: music
+    year: 2026
+
