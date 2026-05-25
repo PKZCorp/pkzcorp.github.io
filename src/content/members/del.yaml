@@ -15,6 +15,7 @@ bio_en: >
   music, make interactive narratives and work with visual and sound design.
 
 skills:
+  # discord: https://discord.com/users/userid
   - Python
   - JavaScript / TypeScript
   - p5.js

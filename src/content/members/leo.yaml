@@ -1,0 +1,42 @@
+slug: leo
+name: Leo
+name_en: Leo
+avatar: /src/assets/members/default.jpg
+tagline: "Short tagline here"
+tagline_en: "Short tagline here"
+
+bio: >
+  A short introduction for Leo. Replace this with a personal bio
+  describing interests, background, and what drives your creative work.
+  Aim for 2-4 short paragraphs when possible.
+
+bio_en: >
+  English version of the bio above. Optional — provide if you
+  have an English translation.
+
+skills:
+  - Game Design
+  - Creative Coding
+  - Music Production
+
+skills_en:
+  - Game Design
+  - Creative Coding
+  - Music Production
+
+links:
+  github: https://github.com/yourusername
+  # itch: https://yourname.itch.io
+  # instagram: https://instagram.com/yourname
+  # website: https://yourwebsite.com
+
+productions:
+  - title: "Example Project"
+    title_en: "Example Project"
+    type: game
+    url: https://example.com
+    year: 2024
+    description: "Short description of the project."
+    description_en: "Short description of the project."
+
+  # Add more productions as needed

@@ -1,0 +1,41 @@
+slug: oswaldo
+name: Oswaldo
+name_en: Oswaldo
+avatar: /src/assets/members/default.jpg
+tagline: "Short tagline here"
+tagline_en: "Short tagline here"
+
+bio: >
+  A short introduction for Oswaldo. Replace this with a personal bio
+  describing interests, background, and what motivates your creative
+  practice. Two to four short paragraphs are recommended.
+
+bio_en: >
+  English version of the bio above. Optional — provide if you
+  have an English translation.
+
+skills:
+  - Illustration
+  - Visual Design
+  - Interaction
+
+skills_en:
+  - Illustration
+  - Visual Design
+  - Interaction
+
+links:
+  github: https://github.com/yourusername
+  # instagram: https://instagram.com/yourname
+  # website: https://yourwebsite.com
+
+productions:
+  - title: "Example Artwork"
+    title_en: "Example Artwork"
+    type: art
+    url: https://example.com
+    year: 2023
+    description: "Short description of the artwork."
+    description_en: "Short description of the artwork."
+
+  # Add more productions as needed

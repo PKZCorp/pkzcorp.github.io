@@ -1,0 +1,48 @@
+slug: russo
+name: Russo
+name_en: Russo
+avatar: /src/assets/members/russo.jpg
+tagline: "um cara legal"
+tagline_en: "a nice guy"
+
+bio: >
+  Fã da PKZ (Gosto de Lana Del Rey e tenho 1.80m de altura.)
+
+bio_en: >
+  PKZ fan (I like Lana Del Rey and I'm 1.80m tall.)
+
+skills:
+  - analista de dados
+  - artes
+  - backend
+  - comunicação
+  - game dev
+  - leitor
+  - python
+  - poliglota
+
+skills_en:
+  - data analysis
+  - arts
+  - backend
+  - communication
+  - game dev
+  - reading
+  - python
+  - polyglot
+
+links:
+  github: https://github.com/Isaque-Ias/
+  instagram: https://www.instagram.com/russo.zeromeia/
+  pinterest: https://br.pinterest.com/ojaribs/_profile/
+  spotify: https://open.spotify.com/user/f1h9kj36p6fx99v8dokcnajgo
+
+productions:
+  - title: "Sweet: Uma engine"
+    title_en: "Sweet: An engine"
+    description: "Uma engine de jogos 2D/3D eficaz feita em Python, utilizando bibliotecas como Pygame."
+    description_en: "An efficient 2D/3D game engine made in Python, utilizing libraries like Pygame."
+    url: https://github.com/Isaque-Ias/Sweet
+    type: software
+    year: 2026
+
