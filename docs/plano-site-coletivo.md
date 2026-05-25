@@ -429,7 +429,7 @@ result_note: >
 
 ### 4.5 Fluxo de Gestão de uma Jam (sem backend)
 
-Como o site é estático (GitHub Pages), a gestão das jams é feita por um maintainer no GitHub, usando edição do arquivo YAML no repositório e pull requests quando necessário. O formulário de submissão serve para coletar entradas sem exigir edição manual pelos participantes:
+Como o site é estático (GitHub Pages), a gestão das jams é feita por um maintainer no GitHub, usando edição do arquivo YAML no repositório e pull requests quando necessário.
 
 ```
 1. Maintainer cria arquivo /data/jams/[slug].yaml
@@ -438,19 +438,14 @@ Como o site é estático (GitHub Pages), a gestão das jams é feita por um main
 2. No dia da revelação, edita o yaml:
    └─ theme: "O Tema Real", status: active
 
-3. Membros enviam submissões pelo formulário da jam
-  └─ a submissão cai para revisão do maintainer
-
-4. Ao encerrar:
+3. Ao encerrar:
   └─ status: closed, result_note: "...", highlight: true nos favoritos escolhidos pelo maintainer
 
-5. Projeto gerado na jam pode virar um /projetos/[slug]
+4. Projeto gerado na jam pode virar um /projetos/[slug]
    com campo `jam: slug-da-jam`
 ```
 
-**Decisão de votação e destaque:** não haverá votação pública no v1. Depois do prazo, o maintainer revisa as submissões, escolhe o destaque da jam e registra o resultado no YAML. Se o coletivo quiser uma mecânica de votação mais tarde, isso pode ser adicionada como campo extra no modelo de jam.
-
-**Formulário de submissão:** o formulário pode ser implementado com um serviço estático como **Formspree** ou **Netlify Forms**, enviando os dados ao maintainer para inclusão manual no repositório. O conteúdo oficial continua sendo o YAML versionado no GitHub.
+**Decisão de votação e destaque:** não haverá votação pública no v1. Depois do prazo, o maintainer revisa o resultado da jam, escolhe o destaque e registra o resultado no YAML. Se o coletivo quiser uma mecânica de votação mais tarde, isso pode ser adicionada como campo extra no modelo de jam.
 
 ---
 
@@ -565,15 +560,15 @@ jobs:
 
 ### 5.4 Decisões de Design
 
-| Decisão            | Escolha atual no repositório                  | Observações / próximos passos                 |
-| ------------------ | --------------------------------------------- | --------------------------------------------- |
-| CSS Framework      | **SCSS/Sass** (parciais em `src/styles/`)     | Estrutura já implementada com tokens e mixins |
-| Fontes             | `Inter`, `IBM Plex Sans`, `JetBrains Mono` via Google Fonts | Importadas em `src/layouts/Base.astro`        |
-| Ícones             | Lucide (via `@lucide/astro`)                  | Component `src/components/Icon.astro` usa Lucide
-| Animações          | CSS transitions; respects `prefers-reduced-motion` | Intersection Observer patterns prepared in styles; reduce-motion handled
-| Tema               | Dark-first color tokens (`$color-bg: #0a0a0a`) | Dark mode is default in styles; no theme toggle implemented yet
-| Imagens            | Logos present as PNG/SVG in `public/images/`  | Thumbnails in content currently use external placeholder images; recommend exporting WebP versions
-| Filtro de projetos | Planned: client-side JS                       | Pages currently placeholders — implement vanilla JS filters when building `/projetos`
+| Decisão            | Escolha atual no repositório                                | Observações / próximos passos                                                                      |
+| ------------------ | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| CSS Framework      | **SCSS/Sass** (parciais em `src/styles/`)                   | Estrutura já implementada com tokens e mixins                                                      |
+| Fontes             | `Inter`, `IBM Plex Sans`, `JetBrains Mono` via Google Fonts | Importadas em `src/layouts/Base.astro`                                                             |
+| Ícones             | Lucide (via `@lucide/astro`)                                | Component `src/components/Icon.astro` usa Lucide                                                   |
+| Animações          | CSS transitions; respects `prefers-reduced-motion`          | Intersection Observer patterns prepared in styles; reduce-motion handled                           |
+| Tema               | Dark-first color tokens (`$color-bg: #0a0a0a`)              | Dark mode is default in styles; no theme toggle implemented yet                                    |
+| Imagens            | Logos present as PNG/SVG in `public/images/`                | Thumbnails in content currently use external placeholder images; recommend exporting WebP versions |
+| Filtro de projetos | Planned: client-side JS                                     | Pages currently placeholders — implement vanilla JS filters when building `/projetos`              |
 
 ### 5.5 Acessibilidade
 
