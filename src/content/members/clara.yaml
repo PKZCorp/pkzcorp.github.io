@@ -1,0 +1,23 @@
+slug: clara
+name: Clara
+name_en: Clara
+avatar: /src/assets/members/clara.jpg
+tagline: "uma artista digital"
+tagline_en: "a digital artist"
+
+bio: >
+  Sou uma artista digital.
+
+bio_en: >
+  I'm a digital artist.
+
+skills:
+  - Artista digital
+
+skills_en:
+  - Digital artist
+
+links:
+  instagram: https://www.instagram.com/whycord/
+
+productions: []
