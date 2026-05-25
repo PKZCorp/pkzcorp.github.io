@@ -2,14 +2,19 @@ slug: clara
 name: Clara
 name_en: Clara
 avatar: /src/assets/members/clara.jpg
-tagline: "uma artista digital"
-tagline_en: "a digital artist"
+tagline: "artista digital, empreendedora"
+tagline_en: "digital artist, entrepreneur"
 
 bio: >
-  Sou uma artista digital.
+  Sou uma artista digital e empreendedora.
+  Meu trabalho é focado em arte digital, ilustração e design gráfico.
+  Acredito que a arte tem o poder de inspirar, 
+  conectar pessoas e transformar o mundo ao nosso redor. 
 
 bio_en: >
-  I'm a digital artist.
+  I am a digital artist, entrepreneur, and content creator.
+  My work focuses on digital art, illustration, and graphic design.
+  I believe that art has the power to inspire, connect people, and transform the world around us.
 
 skills:
   - Artista digital
