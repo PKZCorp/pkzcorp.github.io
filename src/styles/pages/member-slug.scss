@@ -9,7 +9,7 @@
   align-items: start;
 
   @media (max-width: $breakpoint-tablet) {
-    grid-template-columns: 1fr;
+    grid-template-columns: $size-avatar-md 1fr;
     gap: $space-lg;
   }
 }
