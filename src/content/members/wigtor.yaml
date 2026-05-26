@@ -1,35 +1,41 @@
 slug: wigtor
 name: Wigtor
 name_en: Wigtor
-avatar: /src/assets/members/default.jpg
-tagline: "programador e game designer"
-tagline_en: "programmer and game designer"
+avatar: /src/assets/members/wigtor.jpeg
+tagline: "cantor lírico e diretor narrativo"
+tagline_en: "lyric singer and narrative director"
 bio: >
-  Desenvolvedor com foco em jogos independentes e ferramentas interativas.
-  Gosto de prototipar mecânicas experimentais e integrar som e código.
+  Eu canto, gosto de escrever e sou primo do dono.
 
 bio_en: >
-  Developer focused on indie games and interactive tools.
-  I prototype experimental mechanics and integrate sound with code.
+  I sing, I like to write and I'm the owner's cousin.
 
 skills:
-  - Unity
-  - C#
-  - Game Design
-  - Audio Programming
+  - cantor
+  - leitor
+  - escritor
+  - cozinheiro
+  - artista
+  - diretor narrativo
+  - card game master
 
 skills_en:
-  - Unity
-  - C#
-  - Game Design
-  - Audio Programming
+  - singer
+  - reader
+  - writer
+  - cook
+  - artist
+  - narrative director
+  - card game master
 
 links:
-  github: https://github.com/wigtor
+  instagram: https://www.instagram.com/wigtor_on/
 
 productions:
-  - title: "Prototype: Resonant Maze"
-    title_en: "Prototype: Resonant Maze"
+  - title: "Protótipo de Card Game"
+    title_en: "Card Game Prototype"
+    description: "Desenvolvimento de um protótipo de card game colecionável."
+    description_en: "Development of a collectible card game prototype."
     type: game
-    url: https://wigtor.itch.io/resonant-maze
-    year: 2024
+    url: "#"
+    year: 2026
