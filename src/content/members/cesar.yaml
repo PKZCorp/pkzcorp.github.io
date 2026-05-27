@@ -1,0 +1,22 @@
+slug: cezar
+name: Cezar
+name_en: Cezar
+avatar: /src/assets/members/default.jpeg
+tagline: "sim"
+tagline_en: "yes"
+bio: >
+  Sim.
+
+bio_en: >
+  Yes.
+
+skills:
+  - arte
+
+skills_en:
+  - art
+
+links:
+  example: example.com
+
+productions: []
